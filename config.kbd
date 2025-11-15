@@ -1300,11 +1300,11 @@
 
 		cn-. (around ralt (around ] #(c n - . XX)))
 
-	va> (tap-next-release (around ralt #(] v - a XX)) (layer-toggle va>))
-	vs> (tap-next-release (around ralt #(] v - s XX)) (layer-toggle vs>))
-	vd> (tap-next-release (around ralt #(] v - d XX)) (layer-toggle vd>))
-	vx> (tap-next-release (around ralt #(] v - x XX)) (layer-toggle vx>))
-	vc> (tap-next-release (around ralt #(] v - c XX)) (layer-toggle vc>))
+	va> (tap-next-press (around ralt #(] v - a XX)) (layer-toggle va>))
+	vs> (tap-next-press (around ralt #(] v - s XX)) (layer-toggle vs>))
+	vd> (tap-next-press (around ralt #(] v - d XX)) (layer-toggle vd>))
+	vx> (tap-next-press (around ralt #(] v - x XX)) (layer-toggle vx>))
+	vc> (tap-next-press (around ralt #(] v - c XX)) (layer-toggle vc>))
 	vp  (around ralt #(] v - p XX))
 	vj  (around ralt #(] v - j XX))
 	v;  (around ralt #(] v - ; XX))
