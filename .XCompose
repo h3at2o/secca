@@ -2,8 +2,6 @@ include ".XCompose.symbols"
 include ".XCompose.kanji"
 include ".XCompose.variant_of_kanji"
 include ".XCompose.set_of_kanji"
-include ".XCompose.kumimoji"
-include ".XCompose.emoji"
 include ".XCompose.proper_noun"
 
 <Multi_key> <minus> <w> : "き"
