@@ -1,5 +1,5 @@
 (defcfg
-    input    (device-file "/dev/input/by-id/usb-YOUR_USB_DEVICE-event-kbd")
+    input    (device-file "/dev/input/by-id/usb-SONiX_USB_DEVICE-event-kbd")
     output   (uinput-sink "My KMonad output")
     fallthrough true
 )
@@ -81,7 +81,7 @@
 ;;  シフトかな prefix(tap="=")
 	Q   #(ralt = q XX)
 	W   #(ralt = w XX)
-	E   #(ralt = e XX)
+	E  (tap-next-release (around ralt #(= e XX)) (around ralt #(] ] e XX)))	;; テュ
 	R   #(ralt = r XX)
 	T   (around lsft left)
 	A   #(ralt = a XX)
@@ -97,15 +97,14 @@
 	Y   (around lsft right)
 	U   #(ralt = u XX)
 	I   #(ralt = i XX)
-	O   #(ralt = o XX)
-	P   #(ralt = p XX)
+	O  (tap-next-release (around ralt #(= o XX)) (around ralt #(] ] o XX)))	;; ツァ行用
+	P  (tap-next-release (around ralt #(= p XX)) (around ralt #(] ] p XX)))	;; テュ
 	H   #(ralt = h XX)
-	J   #(ralt = j XX)
-	K   #(ralt = k XX)
-;;  ツァ行用
-	L  (tap-next-release (around ralt #(= l XX)) (around ralt #(] ] l XX)))
+	J  (tap-next-release (around ralt #(= j XX)) (around ralt #(] ] j XX)))	;; ツァ行用
+	K  (tap-next-release (around ralt #(= k XX)) (around ralt #(] ] k XX)))	;; ツァ行用
+	L  (tap-next-release (around ralt #(= l XX)) (around ralt #(] ] l XX)))	;; ツァ行用
 	:   #(ralt = ; XX)
-	N   #(ralt = n XX)
+	N  (tap-next-release (around ralt #(= n XX)) (around ralt #(] ] n XX)))	;; ツァ行用
 	M   #(ralt = m XX)
 	<   #(ralt = , XX)
 	>   #(ralt = . XX)
@@ -186,22 +185,18 @@
 	uw  (around ralt #(] u - w XX))
 	ue  (around ralt #(] u - e XX))
 	ur  (around ralt #(] u - r XX))
-	us> (tap-next-release (around ralt #(] u - s XX)) (layer-toggle us>))
-	ud> (tap-next-release (around ralt #(] u - d XX)) (layer-toggle ud>))
-	uf> (tap-next-release (around ralt #(] u - f XX)) (layer-toggle uf>))
+	us  (around ralt #(] u - s XX))
+	ud  (around ralt #(] u - d XX))
+	uf  (around ralt #(] u - f XX))
 	ug  (around ralt #(] u - g XX))
 	ux  (around ralt #(] u - x XX))
 	uc  (around ralt #(] u - c XX))
 	uv  (around ralt #(] u - v XX))
-	ui  (around ralt #(] u - i XX))
-	uk  (around ralt #(] u - k XX))
-	u.  (around ralt #(] u - . XX))
 
 	iq  (around ralt #(] i - q XX))
 	iw> (tap-next-release (around ralt #(] i - w XX)) (layer-toggle iw>))
 	ie  (around ralt #(] i - e XX))
 	ir> (tap-next-release (around ralt #(] i - r XX)) (layer-toggle ir>))
-	ia> (layer-toggle ia>)
 	is  (around ralt #(] i - s XX))
 	id  (around ralt #(] i - d XX))
 	if  (around ralt #(] i - f XX))
@@ -209,7 +204,6 @@
 	ix> (tap-next-release (around ralt #(] i - x XX)) (layer-toggle ix>))
 	ic  (around ralt #(] i - c XX))
 	iv  (around ralt #(] i - v XX))
-	ib> (layer-toggle ib>)
 	io  #(ralt - i ralt - o XX)
 	ij> (tap-next-release (around ralt #(] i - j XX)) (layer-toggle ij>))
 	im> (layer-toggle im>)
@@ -221,43 +215,37 @@
 	or> (tap-next-release (around ralt #(] o - r XX)) (layer-toggle or>))
 	os  (around ralt #(] o - s XX))
 	od  (around ralt #(] o - d XX))
-	of> (tap-next-release (around ralt #(] o - f XX)) (layer-toggle of>))
+	of  (around ralt #(] o - f XX))
 	og  (around ralt #(] o - g XX))
 	ob  (around ralt #(] o - b XX))
 	ox  (around ralt #(] o - x XX))
 	oc  (around ralt #(] o - c XX))
 	ov  (around ralt #(] o - v XX))
-	oi  #(ralt - o ralt - i XX)
-	oh  (around ralt #(] o - h XX))
+	oh  (around ralt #(] o - h XX))						;; クェ
 	oj> (tap-next-release (around ralt #(] o - j XX)) (layer-toggle oj>))
-	ok  (around ralt #(] o - k XX))
-	ol  (around ralt #(] o - l XX))
-	on  (around ralt #(] o - n XX))
-	om  (around ralt #(] o - m XX))
-	o;> (tap-next-release (around ralt #(] o - ; XX)) (layer-toggle o;>))
+	ok  (around ralt #(] o - k XX))						;; イェ
+	ol  (around ralt #(] o - l XX))						;; ウェ
+	o;  (around ralt #(] o - ; XX))						;; フェ
 
-	pq  (around ralt #(] p - q XX))
-	pw> (tap-next-release (around ralt #(] p - w XX)) (layer-toggle pw>))
-	pe> (tap-next-release (around ralt #(] p - e XX)) (layer-toggle pe>))
-	pr> (tap-next-release (around ralt #(] p - r XX)) (layer-toggle pr>))
-	ps  (around ralt #(] p - s XX))
-	pd  (around ralt #(] p - d XX))
-	pf> (tap-next-release (around ralt #(] p - f XX)) (layer-toggle pf>))
-	pg> (tap-next-release (around ralt #(] p - g XX)) (layer-toggle pg>))
-	px> (tap-next-release (around ralt #(] p - x XX)) (layer-toggle px>))
-	pc  (around ralt #(] p - c XX))
-	pv  (around ralt #(] p - v XX))
-	pi  (around ralt #(] p - i XX))
-	po  (around ralt #(] p - o XX))
-	pj> (tap-next-release (around ralt #(] p - p XX)) (layer-toggle pj>))
-	pl  (around ralt #(] p - l XX))
-	p;> (tap-next-release (around ralt #(] p - ; XX)) (layer-toggle p;>))
-	pm> (layer-toggle pm>)
+	pq  (around ralt #(] p - q XX))						;; ゅ
+	pw> (tap-next-release (around ralt #(] p - w XX)) (layer-toggle pw>))	;; きゅぎゅ
+	pe> (tap-next-release (around ralt #(] p - e XX)) (layer-toggle pe>))	;; りゅデュテュ
+	pr> (tap-next-release (around ralt #(] p - r XX)) (layer-toggle pr>))	;; しゅじゅ
+	ps  (around ralt #(] p - s XX))						;; みゅ
+	pd  (around ralt #(] p - d XX))						;; にゅ
+	pf  (around ralt #(] p - f XX))						;; べ
+	pg> (tap-next-release (around ralt #(] p - g XX)) (layer-toggle pg>))	;; ちゅぢゅ
+	px> (tap-next-release (around ralt #(] p - x XX)) (layer-toggle px>))	;; ひゅびゅぴゅ
+	pc  (around ralt #(] p - c XX))						;; 崩し字用
+	pv  (around ralt #(] p - v XX))						;; ぺ
+	pj> (layer-toggle pj>)							;; ぎゅデュじゅぢゅびゅ
+	p;  (around ralt #(] p - ; XX))						;; フュ
+	pm> (layer-toggle pm>)							;; テュぴゅ
 
-	hq  (around ralt #(] h - q XX))
-	hw> (tap-next-release (around ralt #(] h - w XX)) (layer-toggle hw>))
-	he  (around ralt #(] h - e XX))
-	hr> (tap-next-release (around ralt #(] h - r XX)) (layer-toggle hr>))
+	hq  (around ralt #(] h - q XX))						;; ゃ
+	hw> (tap-next-release (around ralt #(] h - w XX)) (layer-toggle hw>))	;; きゃぎゃ
+	he  (around ralt #(] h - e XX))						;; りゃ
+	hr> (tap-next-release (around ralt #(] h - r XX)) (layer-toggle hr>))	;; しゃじゃ
 	ha  (around ralt #(] h - a XX))
 	hs  (around ralt #(] h - s XX))
 	hd  (around ralt #(] h - d XX))
@@ -472,26 +460,26 @@
 	kana-. (tap-next (around ralt #(- . XX)) (layer-toggle kana-.))
 	kana-/ (tap-next (around ralt #(- / XX)) (layer-toggle kana-/))
 
-	qs  (around ralt #(] q - s XX))
-	qf  (around ralt #(] q - f XX))
-	qi  (around ralt #(] q - i XX))
-	qo  (around ralt #(] q - o XX))
-	qp  (around ralt #(] q - p XX))
-	qh  (around ralt #(] q - h XX))
-	qj  (around ralt #(] q - j XX))
-	qk  (around ralt #(] q - k XX))
-	ql  (around ralt #(] q - l XX))
-	qn  (around ralt #(] q - n XX))
-	q.  (around ralt #(] q - . XX))
+	qs  (around ralt #(] q - s XX))	;; ヶ
+	qf  (around ralt #(] q - f XX))	;; ヵ
+	qi  (around ralt #(] q - i XX))	;; ょ
+	qo  (around ralt #(] q - o XX))	;; ぇ
+	qp  (around ralt #(] q - p XX))	;; ゅ
+	qh  (around ralt #(] q - h XX))	;; ゃ
+	qj  (around ralt #(] q - j XX))	;; ぁ
+	qk  (around ralt #(] q - k XX))	;; ぃ
+	ql  (around ralt #(] q - l XX))	;; ぅ
+	qn  (around ralt #(] q - n XX))	;; ぉ
+	q.  (around ralt #(] q - . XX))	;; ゎ
 
-	we> (tap-next-press (around ralt #(] w - e XX)) (layer-toggle we>))
-	wr> (tap-next-press (around ralt #(] w - r XX)) (layer-toggle wr>))
-	wd> (tap-next-press (around ralt #(] w - d XX)) (layer-toggle wd>))
-	wi> (tap-next-release (around ralt #(] w - i XX)) (layer-toggle wi>))
-	wp> (tap-next-release (around ralt #(] w - p XX)) (layer-toggle wp>))
-	wh> (tap-next-release (around ralt #(] w - h XX)) (layer-toggle wh>))
-	wj> (tap-next-release (around ralt #(] w - j XX)) (layer-toggle wj>))
-	
+	we> (layer-toggle we>)	;; 漢字用
+	wr> (layer-toggle wr>)	;; 漢字用
+	wd> (layer-toggle wd>)	;; 漢字用
+	wi> (tap-next-release (around ralt #(] w - i XX)) (layer-toggle wi>))	;; りょぎょ
+	wp> (tap-next-release (around ralt #(] w - p XX)) (layer-toggle wp>))	;; りゅぎゅ
+	wh> (tap-next-release (around ralt #(] w - h XX)) (layer-toggle wh>))	;; りゃぎゃ
+	wj> (tap-next-release (around ralt #(] w - j XX)) (layer-toggle wj>))	;; ぎぎょぎゅぎゃ
+
 		we-u (tap-next-release (around ralt (around [ #(w e - u XX))) (around ralt (around [ #(w e ] u XX))))
 		we-i (tap-next-release (around ralt (around [ #(w e - i XX))) (around ralt (around [ #(w e ] i XX))))
 		we-o (tap-next-release (around ralt (around [ #(w e - o XX))) (around ralt (around [ #(w e ] o XX))))
@@ -506,7 +494,7 @@
 		we-, (tap-next-release (around ralt (around [ #(w e - , XX))) (around ralt (around [ #(w e ] , XX))))
 		we-. (tap-next-release (around ralt (around [ #(w e - . XX))) (around ralt (around [ #(w e ] . XX))))
 		we-/ (tap-next-release (around ralt (around [ #(w e - / XX))) (around ralt (around [ #(w e ] / XX))))
-	
+
 		wr-u (tap-next-release (around ralt (around [ #(w r - u XX))) (around ralt (around [ #(w r ] u XX))))
 		wr-i (tap-next-release (around ralt (around [ #(w r - i XX))) (around ralt (around [ #(w r ] i XX))))
 		wr-o (tap-next-release (around ralt (around [ #(w r - o XX))) (around ralt (around [ #(w r ] o XX))))
@@ -521,7 +509,7 @@
 		wr-, (tap-next-release (around ralt (around [ #(w r - , XX))) (around ralt (around [ #(w r ] , XX))))
 		wr-. (tap-next-release (around ralt (around [ #(w r - . XX))) (around ralt (around [ #(w r ] . XX))))
 		wr-/ (tap-next-release (around ralt (around [ #(w r - / XX))) (around ralt (around [ #(w r ] / XX))))
-	
+
 		wd-u (tap-next-release (around ralt (around [ #(w d - u XX))) (around ralt (around [ #(w d ] u XX))))
 		wd-i (tap-next-release (around ralt (around [ #(w d - i XX))) (around ralt (around [ #(w d ] i XX))))
 		wd-o (tap-next-release (around ralt (around [ #(w d - o XX))) (around ralt (around [ #(w d ] o XX))))
@@ -536,28 +524,28 @@
 		wd-, (tap-next-release (around ralt (around [ #(w d - , XX))) (around ralt (around [ #(w d ] , XX))))
 		wd-. (tap-next-release (around ralt (around [ #(w d - . XX))) (around ralt (around [ #(w d ] . XX))))
 		wd-/ (tap-next-release (around ralt (around [ #(w d - / XX))) (around ralt (around [ #(w d ] / XX))))
-	
-		wp-j (around ralt (around ] #(w p - j XX)))
-	
-		wi-j (around ralt (around ] #(w i - j XX)))
-	
-		wh-j (around ralt (around ] #(w h - j XX)))
-	
-		wj-i (around ralt (around ] #(w j - i XX)))
-		wj-p (around ralt (around ] #(w j - p XX)))
-		wj-h (around ralt (around ] #(w j - h XX)))
-	
-	ew> (tap-next-press (around ralt #(] e - w XX)) (layer-toggle ew>))
-	er> (tap-next-press (around ralt #(] e - r XX)) (layer-toggle er>))
-	et> (tap-next-press (around ralt #(] e - t XX)) (layer-toggle et>))
-	es> (tap-next-press (around ralt #(] e - s XX)) (layer-toggle es>))
-	ef> (tap-next-press (around ralt #(] e - f XX)) (layer-toggle ef>))
-	ei  (around ralt #(] e - i XX))
-	ep> (tap-next-release (around ralt #(] e - p XX)) (layer-toggle ep>))
-	eh  (around ralt #(] e - h XX))
-	ej> (tap-next (around ralt #(] e - j XX)) (layer-toggle ej>))
-	ek> (tap-next-release (around ralt #(] e - k XX)) (layer-toggle ek>))
-	em> (layer-toggle em>)
+
+		wi-j (around ralt (around ] #(w i - j XX)))	;; ぎょ
+
+		wp-j (around ralt (around ] #(w p - j XX)))	;; ぎゅ
+
+		wh-j (around ralt (around ] #(w h - j XX)))	;; ぎゃ
+
+		wj-i (around ralt (around ] #(w j - i XX)))	;; ぎょ
+		wj-p (around ralt (around ] #(w j - p XX)))	;; ぎゅ
+		wj-h (around ralt (around ] #(w j - h XX)))	;; ぎゃ
+
+	ew> (layer-toggle ew>)	;; 漢字用
+	er> (layer-toggle er>)	;; 漢字用
+	et> (layer-toggle et>)	;; 漢字用
+	es> (layer-toggle es>)	;; 漢字用
+	ef> (layer-toggle ef>)	;; 漢字用
+	ei  (around ralt #(] e - i XX))	;; りょ
+	ep> (tap-next-release (around ralt #(] e - p XX)) (layer-toggle ep>))	;; りゅデュ
+	eh  (around ralt #(] e - h XX))	;; りゃ
+	ej> (tap-next-release (around ralt #(] e - j XX)) (layer-toggle ej>))	;; でディデュ
+	ek> (tap-next-release (around ralt #(] e - k XX)) (layer-toggle ek>))	;; ティディ
+	em> (layer-toggle em>)	;; テュ
 	
 		ew-u (tap-next-release (around ralt (around [ #(e w - u XX))) (around ralt (around [ #(e w ] u XX))))
 		ew-i (tap-next-release (around ralt (around [ #(e w - i XX))) (around ralt (around [ #(e w ] i XX))))
@@ -634,24 +622,23 @@
 		ef-. (tap-next-release (around ralt (around [ #(e f - . XX))) (around ralt (around [ #(e f ] . XX))))
 		ef-/ (tap-next-release (around ralt (around [ #(e f - / XX))) (around ralt (around [ #(e f ] / XX))))
 	
-		ep-j (around ralt (around ] #(e p - j XX)))
+		ep-j (around ralt (around ] #(e p - j XX)))	;; デュ
 	
-		ej-p (around ralt (around ] #(e j - p XX)))
-		ej-k (around ralt (around ] #(e j - k XX)))
+		ej-p (around ralt (around ] #(e j - p XX)))	;; デュ
+		ej-k (around ralt (around ] #(e j - k XX)))	;; ディ
 	
-		ek-j (around ralt (around ] #(e k - j XX)))
+		ek-j (around ralt (around ] #(e k - j XX)))	;; ディ
 	
-		em-p (around ralt (around ] #(e m - p XX)))
+		em-p (around ralt (around ] #(e m - p XX)))	;; テュ
 
-	rw> (tap-next-press (around ralt #(] r - w XX)) (layer-toggle rw>))
-	re> (tap-next-press (around ralt #(] r - e XX)) (layer-toggle re>))
-	ri> (tap-next-release (around ralt #(] r - i XX)) (layer-toggle ri>))
-	ro> (tap-next-release (around ralt #(] r - o XX)) (layer-toggle ro>))
-	rp> (tap-next-release (around ralt #(] r - p XX)) (layer-toggle rp>))
-	rh> (tap-next-release (around ralt #(] r - h XX)) (layer-toggle rh>))
-	rj> (tap-next-release (around ralt #(] r - j XX)) (layer-toggle rj>))
+	rw> (layer-toggle rw>)	;; 漢字用
+	re> (layer-toggle re>)	;; 漢字用
+	ri> (tap-next-release (around ralt #(] r - i XX)) (layer-toggle ri>))	;; しょじょ
+	ro> (tap-next-release (around ralt #(] r - o XX)) (layer-toggle ro>))	;; シェジェ
+	rp> (tap-next-release (around ralt #(] r - p XX)) (layer-toggle rp>))	;; しゅじゅ
+	rh> (tap-next-release (around ralt #(] r - h XX)) (layer-toggle rh>))	;; しゃじゃ
+	rj> (tap-next-release (around ralt #(] r - j XX)) (layer-toggle rj>))	;; じじょジェじゅじゃ
 
-		rw-y (around ralt (around [ #(r w - y XX)))
 		rw-u (tap-next-release (around ralt (around [ #(r w - u XX))) (around ralt (around [ #(r w ] u XX))))
 		rw-i (tap-next-release (around ralt (around [ #(r w - i XX))) (around ralt (around [ #(r w ] i XX))))
 		rw-o (tap-next-release (around ralt (around [ #(r w - o XX))) (around ralt (around [ #(r w ] o XX))))
@@ -667,7 +654,6 @@
 		rw-. (tap-next-release (around ralt (around [ #(r w - . XX))) (around ralt (around [ #(r w ] . XX))))
 		rw-/ (tap-next-release (around ralt (around [ #(r w - / XX))) (around ralt (around [ #(r w ] / XX))))
 
-		re-y (around ralt (around [ #(r e - y XX)))
 		re-u (tap-next-release (around ralt (around [ #(r e - u XX))) (around ralt (around [ #(r e ] u XX))))
 		re-i (tap-next-release (around ralt (around [ #(r e - i XX))) (around ralt (around [ #(r e ] i XX))))
 		re-o (tap-next-release (around ralt (around [ #(r e - o XX))) (around ralt (around [ #(r e ] o XX))))
@@ -683,18 +669,18 @@
 		re-. (tap-next-release (around ralt (around [ #(r e - . XX))) (around ralt (around [ #(r e ] . XX))))
 		re-/ (tap-next-release (around ralt (around [ #(r e - / XX))) (around ralt (around [ #(r e ] / XX))))
 
-		ri-j (around ralt (around ] #(r i - j XX)))
+		ri-j (around ralt (around ] #(r i - j XX)))	;; じょ
 
-		ro-j (around ralt (around ] #(r o - j XX)))
+		ro-j (around ralt (around ] #(r o - j XX)))	;; ジェ
 
-		rp-j (around ralt (around ] #(r p - j XX)))
+		rp-j (around ralt (around ] #(r p - j XX)))	;; じゅ
 
-		rh-j (around ralt (around ] #(r h - j XX)))
+		rh-j (around ralt (around ] #(r h - j XX)))	;; じゃ
 
-		rj-i (around ralt (around ] #(r j - i XX)))
-		rj-o (around ralt (around ] #(r j - o XX)))
-		rj-p (around ralt (around ] #(r j - p XX)))
-		rj-h (around ralt (around ] #(r j - h XX)))
+		rj-i (around ralt (around ] #(r j - i XX)))	;; じょ
+		rj-o (around ralt (around ] #(r j - o XX)))	;; ジェ
+		rj-p (around ralt (around ] #(r j - p XX)))	;; じゅ
+		rj-h (around ralt (around ] #(r j - h XX)))	;; じゃ
 
 	;; 固有名詞モード
 		ty   #(ralt ] t - y XX)
@@ -713,26 +699,20 @@
 		t.   #(ralt ] t - . XX)
 		t/   #(ralt ] t - / XX)
 
-	aj  (around ralt #(] a - j XX))
+	aj  (around ralt #(] a - j XX))	;; ぜ
 
-	sq  (around ralt #(] s - q XX))
-	se> (tap-next-press (around ralt #(] s - e XX)) (layer-toggle se>))
-	sr> (tap-next-press (around ralt #(] s - r XX)) (layer-toggle sr>))
-	sd> (tap-next-press (around ralt #(] s - d XX)) (layer-toggle sd>))
-	sf> (tap-next-press (around ralt #(] s - f XX)) (layer-toggle sf>))
-	sc> (tap-next-press (around ralt #(] s - c XX)) (layer-toggle sc>))
-	sv> (tap-next-press (around ralt #(] s - v XX)) (layer-toggle sv>))
-	si  (around ralt #(] s - i XX))
-	sp  (around ralt #(] s - p XX))
-	sh  (around ralt #(] s - h XX))
-	sj  (around ralt #(] s - j XX))
-	sk> (layer-toggle sk>)
-	sm  (around ralt #(] s - m XX))
-	s,  (around ralt #(] s - , XX))
-	s.  (around ralt #(] s - . XX))
+	sq  (around ralt #(] s - q XX))	;; ヶ
+	se> (layer-toggle se>)	;; 漢字用
+	sr> (layer-toggle sr>)	;; 漢字用
+	sd> (layer-toggle sd>)	;; 漢字用
+	sf> (layer-toggle sf>)	;; 漢字用
+	sc> (layer-toggle sc>)	;; 漢字用
+	sv> (layer-toggle sv>)	;; 漢字用
+	si  (around ralt #(] s - i XX))	;; みょ
+	sp  (around ralt #(] s - p XX))	;; みゅ
+	sh  (around ralt #(] s - h XX))	;; みゃ
+	sj  (around ralt #(] s - j XX))	;; げ
 
-		se-d (around ralt #(- d XX))
-		se-y (around ralt (around [ #(s e - y XX)))
 		se-u (tap-next-release (around ralt (around [ #(s e - u XX))) (around ralt (around [ #(s e ] u XX))))
 		se-i (tap-next-release (around ralt (around [ #(s e - i XX))) (around ralt (around [ #(s e ] i XX))))
 		se-o (tap-next-release (around ralt (around [ #(s e - o XX))) (around ralt (around [ #(s e ] o XX))))
@@ -748,7 +728,6 @@
 		se-. (tap-next-release (around ralt (around [ #(s e - . XX))) (around ralt (around [ #(s e ] . XX))))
 		se-/ (tap-next-release (around ralt (around [ #(s e - / XX))) (around ralt (around [ #(s e ] / XX))))
 
-		sr-y (around ralt (around [ #(s r - y XX)))
 		sr-u (tap-next-release (around ralt (around [ #(s r - u XX))) (around ralt (around [ #(s r ] u XX))))
 		sr-i (tap-next-release (around ralt (around [ #(s r - i XX))) (around ralt (around [ #(s r ] i XX))))
 		sr-o (tap-next-release (around ralt (around [ #(s r - o XX))) (around ralt (around [ #(s r ] o XX))))
@@ -764,7 +743,6 @@
 		sr-. (tap-next-release (around ralt (around [ #(s r - . XX))) (around ralt (around [ #(s r ] . XX))))
 		sr-/ (tap-next-release (around ralt (around [ #(s r - / XX))) (around ralt (around [ #(s r ] / XX))))
 
-		sd-y (around ralt (around [ #(s d - y XX)))
 		sd-u (tap-next-release (around ralt (around [ #(s d - u XX))) (around ralt (around [ #(s d ] u XX))))
 		sd-i (tap-next-release (around ralt (around [ #(s d - i XX))) (around ralt (around [ #(s d ] i XX))))
 		sd-o (tap-next-release (around ralt (around [ #(s d - o XX))) (around ralt (around [ #(s d ] o XX))))
@@ -780,7 +758,6 @@
 		sd-. (tap-next-release (around ralt (around [ #(s d - . XX))) (around ralt (around [ #(s d ] . XX))))
 		sd-/ (tap-next-release (around ralt (around [ #(s d - / XX))) (around ralt (around [ #(s d ] / XX))))
 
-		sf-y (around ralt (around [ #(s f - y XX)))
 		sf-u (tap-next-release (around ralt (around [ #(s f - u XX))) (around ralt (around [ #(s f ] u XX))))
 		sf-i (tap-next-release (around ralt (around [ #(s f - i XX))) (around ralt (around [ #(s f ] i XX))))
 		sf-o (tap-next-release (around ralt (around [ #(s f - o XX))) (around ralt (around [ #(s f ] o XX))))
@@ -796,7 +773,6 @@
 		sf-. (tap-next-release (around ralt (around [ #(s f - . XX))) (around ralt (around [ #(s f ] . XX))))
 		sf-/ (tap-next-release (around ralt (around [ #(s f - / XX))) (around ralt (around [ #(s f ] / XX))))
 
-		sc-y (around ralt (around [ #(s c - y XX)))
 		sc-u (tap-next-release (around ralt (around [ #(s c - u XX))) (around ralt (around [ #(s c ] u XX))))
 		sc-i (tap-next-release (around ralt (around [ #(s c - i XX))) (around ralt (around [ #(s c ] i XX))))
 		sc-o (tap-next-release (around ralt (around [ #(s c - o XX))) (around ralt (around [ #(s c ] o XX))))
@@ -812,8 +788,6 @@
 		sc-. (tap-next-release (around ralt (around [ #(s c - . XX))) (around ralt (around [ #(s c ] . XX))))
 		sc-/ (tap-next-release (around ralt (around [ #(s c - / XX))) (around ralt (around [ #(s c ] / XX))))
 
-		sv-d (around ralt (around ] #(s v - d XX)))
-		sv-y (around ralt (around [ #(s v - y XX)))
 		sv-u (tap-next-release (around ralt (around [ #(s v - u XX))) (around ralt (around [ #(s v ] u XX))))
 		sv-i (tap-next-release (around ralt (around [ #(s v - i XX))) (around ralt (around [ #(s v ] i XX))))
 		sv-o (tap-next-release (around ralt (around [ #(s v - o XX))) (around ralt (around [ #(s v ] o XX))))
@@ -829,24 +803,19 @@
 		sv-. (tap-next-release (around ralt (around [ #(s v - . XX))) (around ralt (around [ #(s v ] . XX))))
 		sv-/ (tap-next-release (around ralt (around [ #(s v - / XX))) (around ralt (around [ #(s v ] / XX))))
 
-		sk-j (around ralt (around ] #(s k - j XX)))
+	dw> (layer-toggle dw>)	;; 漢字用
+	dr> (layer-toggle dr>)	;; 漢字用
+	dt> (layer-toggle dt>)	;; 漢字用
+	ds> (layer-toggle ds>)	;; 漢字用
+	df> (layer-toggle df>)	;; 漢字用
+	dg> (layer-toggle dg>)	;; 漢字用
+	dv> (layer-toggle dv>)	;; 漢字用
+	di  (around ralt #(] d - i XX))	;; にょ
+	dp  (around ralt #(] d - p XX))	;; にゅ
+	dh  (around ralt #(] d - h XX))	;; にゃ
+	dj> (tap-next-release (around ralt #(] d - j XX)) (layer-toggle dj>))	;; どドゥ
+	dl> (tap-next-release (around ralt #(] d - l XX)) (layer-toggle dl>))	;; トゥドゥ
 
-	dw> (tap-next-press (around ralt #(] d - w XX)) (layer-toggle dw>))
-	dr> (tap-next-press (around ralt #(] d - r XX)) (layer-toggle dr>))
-	dt> (tap-next-press (around ralt #(] d - t XX)) (layer-toggle dt>))
-	ds> (tap-next-press (around ralt #(] d - s XX)) (layer-toggle ds>))
-	df> (tap-next-press (around ralt #(] d - f XX)) (layer-toggle df>))
-	dg> (tap-next-press (around ralt #(] d - g XX)) (layer-toggle dg>))
-	dv> (tap-next-press (around ralt #(] d - v XX)) (layer-toggle dv>))
-	db> (layer-toggle db>)
-	di  (around ralt #(] d - i XX))
-	dp  (around ralt #(] d - p XX))
-	dh  (around ralt #(] d - h XX))
-	dj> (tap-next-release (around ralt #(] d - j XX)) (layer-toggle dj>))
-	dk> (tap-next-release (around ralt #(] d - k XX)) (layer-toggle dk>))
-	dl> (tap-next-release (around ralt #(] d - l XX)) (layer-toggle dl>))
-
-		dw-y (around ralt (around [ #(d w - y XX)))
 		dw-u (tap-next-release (around ralt (around [ #(d w - u XX))) (around ralt (around [ #(d w ] u XX))))
 		dw-i (tap-next-release (around ralt (around [ #(d w - i XX))) (around ralt (around [ #(d w ] i XX))))
 		dw-o (tap-next-release (around ralt (around [ #(d w - o XX))) (around ralt (around [ #(d w ] o XX))))
@@ -862,8 +831,6 @@
 		dw-. (tap-next-release (around ralt (around [ #(d w - . XX))) (around ralt (around [ #(d w ] . XX))))
 		dw-/ (tap-next-release (around ralt (around [ #(d w - / XX))) (around ralt (around [ #(d w ] / XX))))
 
-		dr-w (around ralt (around ] #(d r - w XX)))
-		dr-y (around ralt (around [ #(d r - y XX)))
 		dr-u (tap-next-release (around ralt (around [ #(d r - u XX))) (around ralt (around [ #(d r ] u XX))))
 		dr-i (tap-next-release (around ralt (around [ #(d r - i XX))) (around ralt (around [ #(d r ] i XX))))
 		dr-o (tap-next-release (around ralt (around [ #(d r - o XX))) (around ralt (around [ #(d r ] o XX))))
@@ -879,7 +846,6 @@
 		dr-. (tap-next-release (around ralt (around [ #(d r - . XX))) (around ralt (around [ #(d r ] . XX))))
 		dr-/ (tap-next-release (around ralt (around [ #(d r - / XX))) (around ralt (around [ #(d r ] / XX))))
 
-		dt-y (around ralt (around [ #(d t - y XX)))
 		dt-u (tap-next-release (around ralt (around [ #(d t - u XX))) (around ralt (around [ #(d t ] u XX))))
 		dt-i (tap-next-release (around ralt (around [ #(d t - i XX))) (around ralt (around [ #(d t ] i XX))))
 		dt-o (tap-next-release (around ralt (around [ #(d t - o XX))) (around ralt (around [ #(d t ] o XX))))
@@ -895,7 +861,6 @@
 		dt-. (tap-next-release (around ralt (around [ #(d t - . XX))) (around ralt (around [ #(d t ] . XX))))
 		dt-/ (tap-next-release (around ralt (around [ #(d t - / XX))) (around ralt (around [ #(d t ] / XX))))
 
-		ds-y (around ralt (around [ #(d s - y XX)))
 		ds-u (tap-next-release (around ralt (around [ #(d s - u XX))) (around ralt (around [ #(d s ] u XX))))
 		ds-i (tap-next-release (around ralt (around [ #(d s - i XX))) (around ralt (around [ #(d s ] i XX))))
 		ds-o (tap-next-release (around ralt (around [ #(d s - o XX))) (around ralt (around [ #(d s ] o XX))))
@@ -911,7 +876,6 @@
 		ds-. (tap-next-release (around ralt (around [ #(d s - . XX))) (around ralt (around [ #(d s ] . XX))))
 		ds-/ (tap-next-release (around ralt (around [ #(d s - / XX))) (around ralt (around [ #(d s ] / XX))))
 
-		df-y (around ralt (around [ #(d f - y XX)))
 		df-u (tap-next-release (around ralt (around [ #(d f - u XX))) (around ralt (around [ #(d f ] u XX))))
 		df-i (tap-next-release (around ralt (around [ #(d f - i XX))) (around ralt (around [ #(d f ] i XX))))
 		df-o (tap-next-release (around ralt (around [ #(d f - o XX))) (around ralt (around [ #(d f ] o XX))))
@@ -927,7 +891,6 @@
 		df-. (tap-next-release (around ralt (around [ #(d f - . XX))) (around ralt (around [ #(d f ] . XX))))
 		df-/ (tap-next-release (around ralt (around [ #(d f - / XX))) (around ralt (around [ #(d f ] / XX))))
 
-		dg-y (around ralt (around [ #(d g - y XX)))
 		dg-u (tap-next-release (around ralt (around [ #(d g - u XX))) (around ralt (around [ #(d g ] u XX))))
 		dg-i (tap-next-release (around ralt (around [ #(d g - i XX))) (around ralt (around [ #(d g ] i XX))))
 		dg-o (tap-next-release (around ralt (around [ #(d g - o XX))) (around ralt (around [ #(d g ] o XX))))
@@ -943,7 +906,6 @@
 		dg-. (tap-next-release (around ralt (around [ #(d g - . XX))) (around ralt (around [ #(d g ] . XX))))
 		dg-/ (tap-next-release (around ralt (around [ #(d g - / XX))) (around ralt (around [ #(d g ] / XX))))
 
-		dv-y (around ralt (around [ #(d v - y XX)))
 		dv-u (tap-next-release (around ralt (around [ #(d v - u XX))) (around ralt (around [ #(d v ] u XX))))
 		dv-i (tap-next-release (around ralt (around [ #(d v - i XX))) (around ralt (around [ #(d v ] i XX))))
 		dv-o (tap-next-release (around ralt (around [ #(d v - o XX))) (around ralt (around [ #(d v ] o XX))))
@@ -959,29 +921,24 @@
 		dv-. (tap-next-release (around ralt (around [ #(d v - . XX))) (around ralt (around [ #(d v ] . XX))))
 		dv-/ (tap-next-release (around ralt (around [ #(d v - / XX))) (around ralt (around [ #(d v ] / XX))))
 
-		db-. (around ralt (around ] #(d b - . XX)))
+		dj-l (around ralt (around ] #(d j - l XX)))	;; ドゥ
 
-		dj-l (around ralt (around ] #(d j - l XX)))
+		dl-j (around ralt (around ] #(d l - j XX)))	;; ドゥ
 
-		dl-j (around ralt (around ] #(d l - j XX)))
-
-		dk-m (around ralt (around ] #(d k - m XX)))
-
-	fq  (around ralt #(] f - q XX))
-	fe> (tap-next-press (around ralt #(] f - e XX)) (layer-toggle fe>))
-	fs> (tap-next-press (around ralt #(] f - s XX)) (layer-toggle fs>))
-	fd> (tap-next-press (around ralt #(] f - d XX)) (layer-toggle fd>))
-	fu  (around ralt #(] f - u XX))
-	fo> (tap-next-release (around ralt #(] f - o XX)) (layer-toggle fo>))
-	fp> (tap-next-release (around ralt #(] f - p XX)) (layer-toggle fp>))
-	fh> (tap-next-release (around ralt #(] f - h XX)) (layer-toggle fh>))
-	fj> (tap-next-release (around ralt #(] f - j XX)) (layer-toggle fj>))
+	fq  (around ralt #(] f - q XX))	;; ヵ
+	fe> (layer-toggle fe>)	;; 漢字用
+	fs> (layer-toggle fs>)	;; 漢字用
+	fd> (layer-toggle fd>)	;; 漢字用
+	fu  (around ralt #(] f - u XX))	;; ざ
+	fo> (tap-next-release (around ralt #(] f - o XX)) (layer-toggle fo>))	;; ず
+	fp> (tap-next-release (around ralt #(] f - p XX)) (layer-toggle fp>))	;; べ
+	fh> (tap-next-release (around ralt #(] f - h XX)) (layer-toggle fh>))	;; ぐ
+	fj> (tap-next-release (around ralt #(] f - j XX)) (layer-toggle fj>))	;; が
 	fk> (tap-next-release (around ralt #(] f - k XX)) (layer-toggle fk>))	;; ヴィ
-	fl> (tap-next-release (around ralt #(] f - l XX)) (layer-toggle fl>))
-	f;> (tap-next-release (around ralt #(] f - ; XX)) (layer-toggle f;>))
-	fn> (tap-next-release (around ralt #(] f - n XX)) (layer-toggle fn>))
+	fl> (tap-next-release (around ralt #(] f - l XX)) (layer-toggle fl>))	;; づ
+	f;> (tap-next-release (around ralt #(] f - ; XX)) (layer-toggle f;>))	;; ぶ
+	fn> (around ralt #(] f - n XX))	;; だ
 
-		fe-y (around ralt (around [ #(f e - y XX)))
 		fe-u (tap-next-release (around ralt (around [ #(f e - u XX))) (around ralt (around [ #(f e ] u XX))))
 		fe-i (tap-next-release (around ralt (around [ #(f e - i XX))) (around ralt (around [ #(f e ] i XX))))
 		fe-o (tap-next-release (around ralt (around [ #(f e - o XX))) (around ralt (around [ #(f e ] o XX))))
@@ -997,7 +954,6 @@
 		fe-. (tap-next-release (around ralt (around [ #(f e - . XX))) (around ralt (around [ #(f e ] . XX))))
 		fe-/ (tap-next-release (around ralt (around [ #(f e - / XX))) (around ralt (around [ #(f e ] / XX))))
 
-		fs-y (around ralt (around [ #(f s - y XX)))
 		fs-u (tap-next-release (around ralt (around [ #(f s - u XX))) (around ralt (around [ #(f s ] u XX))))
 		fs-i (tap-next-release (around ralt (around [ #(f s - i XX))) (around ralt (around [ #(f s ] i XX))))
 		fs-o (tap-next-release (around ralt (around [ #(f s - o XX))) (around ralt (around [ #(f s ] o XX))))
@@ -1013,7 +969,6 @@
 		fs-. (tap-next-release (around ralt (around [ #(f s - . XX))) (around ralt (around [ #(f s ] . XX))))
 		fs-/ (tap-next-release (around ralt (around [ #(f s - / XX))) (around ralt (around [ #(f s ] / XX))))
 
-		fd-y (around ralt (around [ #(f d - y XX)))
 		fd-u (tap-next-release (around ralt (around [ #(f d - u XX))) (around ralt (around [ #(f d ] u XX))))
 		fd-i (tap-next-release (around ralt (around [ #(f d - i XX))) (around ralt (around [ #(f d ] i XX))))
 		fd-o (tap-next-release (around ralt (around [ #(f d - o XX))) (around ralt (around [ #(f d ] o XX))))
@@ -1029,82 +984,54 @@
 		fd-. (tap-next-release (around ralt (around [ #(f d - . XX))) (around ralt (around [ #(f d ] . XX))))
 		fd-/ (tap-next-release (around ralt (around [ #(f d - / XX))) (around ralt (around [ #(f d ] / XX))))
 
-		fo-; (around ralt (around ] #(f o - ; XX)))
+		fo-; (around ralt (around ] #(f o - ; XX)))	;; ず
 
-		fp-; (around ralt (around ] #(f p - ; XX)))
+		fp-; (around ralt (around ] #(f p - ; XX)))	;; べ
 
-		fh-j (around ralt (around ] #(f h - j XX)))
+		fh-j (around ralt (around ] #(f h - j XX)))	;; グァ
 
-		fj-h (around ralt (around ] #(f j - h XX)))
-		fj-; (around ralt (around ] #(f j - ; XX)))
+		fj-h (around ralt (around ] #(f j - h XX)))	;; グァ
 
-		fk-l (around ralt (around ] #(f k - l XX)))
+		fk-l (around ralt (around ] #(f k - l XX)))	;; ヴィ
 
-		fl-o (around ralt (around ] #(f l - o XX)))
-		fl-p (around ralt (around ] #(f l - p XX)))
-		fl-j (around ralt (around ] #(f l - j XX)))
-		fl-k (around ralt (around ] #(f l - k XX)))
-		fl-; (around ralt (around ] #(f l - ; XX)))
-		fl-n (around ralt (around ] #(f l - n XX)))
+		fl-o (around ralt (around ] #(f l - o XX)))	;; ヴェ
+		fl-p (around ralt (around ] #(f l - p XX)))	;; ヴュ
+		fl-j (around ralt (around ] #(f l - j XX)))	;; ヴァ
+		fl-k (around ralt (around ] #(f l - k XX)))	;; ヴィ
+		fl-; (around ralt (around ] #(f l - ; XX)))	;; ヴ
+		fl-n (around ralt (around ] #(f l - n XX)))	;; ヴォ
 
-		f;-o (around ralt (around ] #(f ; - o XX)))
-		f;-p (around ralt (around ] #(f ; - p XX)))
-		f;-j (around ralt (around ] #(f ; - j XX)))
-		f;-k (around ralt (around ] #(f ; - k XX)))
-		f;-l (around ralt (around ] #(f ; - l XX)))
-		f;-n (around ralt (around ] #(f ; - n XX)))
+		f;-l (around ralt (around ] #(f ; - l XX)))	;; ヴ
 
-		fn-i (around ralt (around ] #(f n - i XX)))
-		fn-; (around ralt (around ] #(f n - ; XX)))
-		fn-. (around ralt (around ] #(f n - . XX)))
-		fn-/ (around ralt (around ] #(f n - / XX)))
+	gi> (tap-next-release (around ralt #(] g - i XX)) (layer-toggle gi>))	;; ちょ
+	go  (around ralt #(] g - o XX))						;; チェ
+	gp> (tap-next-release (around ralt #(] g - p XX)) (layer-toggle gp>))	;; ちゅ
+	gh> (tap-next-release (around ralt #(] g - h XX)) (layer-toggle gh>))	;; ちゃ
+	gj> (tap-next-release (around ralt #(] g - j XX)) (layer-toggle gj>))	;; ぢ
 
-	gi> (tap-next-release (around ralt #(] g - i XX)) (layer-toggle gi>))
-	go  (around ralt #(] g - o XX))
-	gp> (tap-next-release (around ralt #(] g - p XX)) (layer-toggle gp>))
-	gh> (tap-next-release (around ralt #(] g - h XX)) (layer-toggle gh>))
-	gj> (tap-next-release (around ralt #(] g - j XX)) (layer-toggle gj>))
+		gi-j (around ralt (around ] #(g i - j XX)))	;; ぢょ
 
-		gi-j (around ralt (around ] #(g i - j XX)))
+		gp-j (around ralt (around ] #(g p - j XX)))	;; ぢゅ
 
-		gp-j (around ralt (around ] #(g p - j XX)))
+		gh-j (around ralt (around ] #(g h - j XX)))	;; ぢゃ
 
-		gh-j (around ralt (around ] #(g h - j XX)))
+		gj-i (around ralt (around ] #(g j - i XX)))	;; ぢょ
+		gj-h (around ralt (around ] #(g j - h XX)))	;; ぢゃ
+		gj-p (around ralt (around ] #(g j - p XX)))	;; ぢゅ
 
-		gj-i (around ralt (around ] #(g j - i XX)))
-		gj-h (around ralt (around ] #(g j - h XX)))
-		gj-p (around ralt (around ] #(g j - p XX)))
+	zj  (around ralt #(] z - j XX))	;; ぼ
+	zm  (around ralt #(] z - m XX))	;; ぽ
 
-	zr  (around ralt #(] z - r XX))
-	ze  (around ralt #(] z - e XX))
-	zd> (layer-toggle zd>)
-	zf  (around ralt #(] z - f XX))
-	zv  (around ralt #(] z - v XX))
-	zj  (around ralt #(] z - j XX))
-	zn> (tap-next-release (around ralt #(] z - n XX)) (layer-toggle zn>))
-	zm  (around ralt #(] z - m XX))
-	z,  (around ralt #(] z - , XX))
-	z.  (around ralt #(] z - . XX))
+	xd> (layer-toggle xd>)	;; 漢字用
+	xf> (layer-toggle xf>)	;; 漢字用
+	xc> (layer-toggle xc>)	;; 漢字用
+	xv> (layer-toggle xv>)	;; 漢字用
+	xi> (tap-next-release (around ralt #(] x - i XX)) (layer-toggle xi>))	;; ひょびょぴょ
+	xp> (tap-next-release (around ralt #(] x - p XX)) (layer-toggle xp>))	;; ひゅびゅぴゅ
+	xh> (tap-next-release (around ralt #(] x - h XX)) (layer-toggle xh>))	;; ひゃびゃぴゃ
+	xj> (tap-next-release (around ralt #(] x - j XX)) (layer-toggle xj>))	;; びびょびゅびゃ
+	xm> (tap-next-release (around ralt #(] x - m XX)) (layer-toggle xm>))	;; ぴぴょぴゅぴゃ
 
-		zd-s (around ralt (around ] #(z d - s XX)))
-
-		zn-i (around ralt (around ] #(z n - i XX)))
-
-	xr  (around ralt #(] x - r XX))
-	xa  (around ralt #(] x - a XX))
-	xd> (tap-next-press (around ralt #(] x - d XX)) (layer-toggle xd>))
-	xf> (tap-next-press (around ralt #(] x - f XX)) (layer-toggle xf>))
-	xc> (tap-next-press (around ralt #(] x - c XX)) (layer-toggle xc>))
-	xv> (tap-next-press (around ralt #(] x - v XX)) (layer-toggle xv>))
-	xu  (around ralt #(] x - u XX))
-	xi> (tap-next-release (around ralt #(] x - i XX)) (layer-toggle xi>))
-	xp> (tap-next-release (around ralt #(] x - p XX)) (layer-toggle xp>))
-	xh> (tap-next-release (around ralt #(] x - h XX)) (layer-toggle xh>))
-	xj> (tap-next-release (around ralt #(] x - j XX)) (layer-toggle xj>))
-	xm> (tap-next-release (around ralt #(] x - m XX)) (layer-toggle xm>))
-	xn> (tap-next-release (around ralt #(] x - n XX)) (layer-toggle xn>))
-
-		xd-y (around ralt (around [ #(x d - y XX)))
 		xd-u (tap-next-release (around ralt (around [ #(x d - u XX))) (around ralt (around [ #(x d ] u XX))))
 		xd-i (tap-next-release (around ralt (around [ #(x d - i XX))) (around ralt (around [ #(x d ] i XX))))
 		xd-o (tap-next-release (around ralt (around [ #(x d - o XX))) (around ralt (around [ #(x d ] o XX))))
@@ -1120,7 +1047,6 @@
 		xd-. (tap-next-release (around ralt (around [ #(x d - . XX))) (around ralt (around [ #(x d ] . XX))))
 		xd-/ (tap-next-release (around ralt (around [ #(x d - / XX))) (around ralt (around [ #(x d ] / XX))))
 
-		xf-y (around ralt (around [ #(x f - y XX)))
 		xf-u (tap-next-release (around ralt (around [ #(x f - u XX))) (around ralt (around [ #(x f ] u XX))))
 		xf-i (tap-next-release (around ralt (around [ #(x f - i XX))) (around ralt (around [ #(x f ] i XX))))
 		xf-o (tap-next-release (around ralt (around [ #(x f - o XX))) (around ralt (around [ #(x f ] o XX))))
@@ -1136,7 +1062,6 @@
 		xf-. (tap-next-release (around ralt (around [ #(x f - . XX))) (around ralt (around [ #(x f ] . XX))))
 		xf-/ (tap-next-release (around ralt (around [ #(x f - / XX))) (around ralt (around [ #(x f ] / XX))))
 
-		xg-y (around ralt (around [ #(x g - y XX)))
 		xg-u (tap-next-release (around ralt (around [ #(x g - u XX))) (around ralt (around [ #(x g ] u XX))))
 		xg-i (tap-next-release (around ralt (around [ #(x g - i XX))) (around ralt (around [ #(x g ] i XX))))
 		xg-o (tap-next-release (around ralt (around [ #(x g - o XX))) (around ralt (around [ #(x g ] o XX))))
@@ -1152,7 +1077,6 @@
 		xg-. (tap-next-release (around ralt (around [ #(x g - . XX))) (around ralt (around [ #(x g ] . XX))))
 		xg-/ (tap-next-release (around ralt (around [ #(x g - / XX))) (around ralt (around [ #(x g ] / XX))))
 
-		xc-y (around ralt (around [ #(x c - y XX)))
 		xc-u (tap-next-release (around ralt (around [ #(x c - u XX))) (around ralt (around [ #(x c ] u XX))))
 		xc-i (tap-next-release (around ralt (around [ #(x c - i XX))) (around ralt (around [ #(x c ] i XX))))
 		xc-o (tap-next-release (around ralt (around [ #(x c - o XX))) (around ralt (around [ #(x c ] o XX))))
@@ -1168,7 +1092,6 @@
 		xc-. (tap-next-release (around ralt (around [ #(x c - . XX))) (around ralt (around [ #(x c ] . XX))))
 		xc-/ (tap-next-release (around ralt (around [ #(x c - / XX))) (around ralt (around [ #(x c ] / XX))))
 
-		xv-y (around ralt (around [ #(x v - y XX)))
 		xv-u (tap-next-release (around ralt (around [ #(x v - u XX))) (around ralt (around [ #(x v ] u XX))))
 		xv-i (tap-next-release (around ralt (around [ #(x v - i XX))) (around ralt (around [ #(x v ] i XX))))
 		xv-o (tap-next-release (around ralt (around [ #(x v - o XX))) (around ralt (around [ #(x v ] o XX))))
@@ -1184,41 +1107,31 @@
 		xv-. (tap-next-release (around ralt (around [ #(x v - . XX))) (around ralt (around [ #(x v ] . XX))))
 		xv-/ (tap-next-release (around ralt (around [ #(x v - / XX))) (around ralt (around [ #(x v ] / XX))))
 
-		xi-j (around ralt (around ] #(x i - j XX)))
-		xi-m (around ralt (around ] #(x i - m XX)))
+		xi-j (around ralt (around ] #(x i - j XX)))	;; びょ
+		xi-m (around ralt (around ] #(x i - m XX)))	;; ぴょ
 
-		xp-j (around ralt (around ] #(x p - j XX)))
-		xp-m (around ralt (around ] #(x p - m XX)))
+		xp-j (around ralt (around ] #(x p - j XX)))	;; びゅ
+		xp-m (around ralt (around ] #(x p - m XX)))	;; ぴゅ
 
-		xh-j (around ralt (around ] #(x h - j XX)))
-		xh-m (around ralt (around ] #(x h - m XX)))
+		xh-j (around ralt (around ] #(x h - j XX)))	;; びゃ
+		xh-m (around ralt (around ] #(x h - m XX)))	;; ぴゃ
 
-		xj-i (around ralt (around ] #(x j - i XX)))
-		xj-p (around ralt (around ] #(x j - p XX)))
-		xj-h (around ralt (around ] #(x j - h XX)))
+		xj-i (around ralt (around ] #(x j - i XX)))	;; びょ
+		xj-p (around ralt (around ] #(x j - p XX)))	;; びゅ
+		xj-h (around ralt (around ] #(x j - h XX)))	;; びゃ
 
-		xn-k (around ralt (around ] #(x n - k XX)))
+		xm-i (around ralt (around ] #(x m - i XX)))	;; ぴょ
+		xm-p (around ralt (around ] #(x m - p XX)))	;; ぴゅ
+		xm-h (around ralt (around ] #(x m - h XX)))	;; ぴゃ
 
-		xm-i (around ralt (around ] #(x m - i XX)))
-		xm-p (around ralt (around ] #(x m - p XX)))
-		xm-h (around ralt (around ] #(x m - h XX)))
+	cs> (layer-toggle cs>)	;; 漢字用
+	cg> (layer-toggle cg>)	;; 漢字用
+	cx> (layer-toggle cx>)	;; 漢字用
+	cv> (layer-toggle cv>)	;; 漢字用
+	cb> (layer-toggle cb>)	;; 漢字用
+	cj  (around ralt #(] c - j XX))	;; ば
+	cm  (around ralt #(] c - m XX))	;; ぱ
 
-	cs> (tap-next-press (around ralt #(] c - s XX)) (layer-toggle cs>))
-	cf  (around ralt #(] c - f XX))
-	cg> (tap-next-press (around ralt #(] c - g XX)) (layer-toggle cg>))
-	cx> (tap-next-press (around ralt #(] c - x XX)) (layer-toggle cx>))
-	cv  (layer-toggle cv>)
-	cb> (tap-next-press (around ralt #(] c - b XX)) (layer-toggle cb>))
-	cu  (around ralt #(] c - u XX))
-	ci  (around ralt #(] c - i XX))
-	ch  (around ralt #(] c - h XX))
-	cj  (around ralt #(] c - j XX))
-	ck  #(ralt - c ralt - k XX)
-	cn> (tap-next-release (around ralt #(] c - n XX)) (layer-toggle cn>))
-	cm  (around ralt #(] c - m XX))
-	c.  (around ralt #(] c - . XX))
-
-		cs-y (around ralt (around [ #(c s - y XX)))
 		cs-u (tap-next-release (around ralt (around [ #(c s - u XX))) (around ralt (around [ #(c s ] u XX))))
 		cs-i (tap-next-release (around ralt (around [ #(c s - i XX))) (around ralt (around [ #(c s ] i XX))))
 		cs-o (tap-next-release (around ralt (around [ #(c s - o XX))) (around ralt (around [ #(c s ] o XX))))
@@ -1234,7 +1147,6 @@
 		cs-. (tap-next-release (around ralt (around [ #(c s - . XX))) (around ralt (around [ #(c s ] . XX))))
 		cs-/ (tap-next-release (around ralt (around [ #(c s - / XX))) (around ralt (around [ #(c s ] / XX))))
 
-		cg-y (around ralt (around [ #(c g - y XX)))
 		cg-u (tap-next-release (around ralt (around [ #(c g - u XX))) (around ralt (around [ #(c g ] u XX))))
 		cg-i (tap-next-release (around ralt (around [ #(c g - i XX))) (around ralt (around [ #(c g ] i XX))))
 		cg-o (tap-next-release (around ralt (around [ #(c g - o XX))) (around ralt (around [ #(c g ] o XX))))
@@ -1250,7 +1162,6 @@
 		cg-. (tap-next-release (around ralt (around [ #(c g - . XX))) (around ralt (around [ #(c g ] . XX))))
 		cg-/ (tap-next-release (around ralt (around [ #(c g - / XX))) (around ralt (around [ #(c g ] / XX))))
 
-		cx-y (around ralt (around [ #(c x - y XX)))
 		cx-u (tap-next-release (around ralt (around [ #(c x - u XX))) (around ralt (around [ #(c x ] u XX))))
 		cx-i (tap-next-release (around ralt (around [ #(c x - i XX))) (around ralt (around [ #(c x ] i XX))))
 		cx-o (tap-next-release (around ralt (around [ #(c x - o XX))) (around ralt (around [ #(c x ] o XX))))
@@ -1266,7 +1177,6 @@
 		cx-. (tap-next-release (around ralt (around [ #(c x - . XX))) (around ralt (around [ #(c x ] . XX))))
 		cx-/ (tap-next-release (around ralt (around [ #(c x - / XX))) (around ralt (around [ #(c x ] / XX))))
 
-		cv-y (around ralt (around [ #(c v - y XX)))
 		cv-u (tap-next-release (around ralt (around [ #(c v - u XX))) (around ralt (around [ #(c v ] u XX))))
 		cv-i (tap-next-release (around ralt (around [ #(c v - i XX))) (around ralt (around [ #(c v ] i XX))))
 		cv-o (tap-next-release (around ralt (around [ #(c v - o XX))) (around ralt (around [ #(c v ] o XX))))
@@ -1282,7 +1192,6 @@
 		cv-. (tap-next-release (around ralt (around [ #(c v - . XX))) (around ralt (around [ #(c v ] . XX))))
 		cv-/ (tap-next-release (around ralt (around [ #(c v - / XX))) (around ralt (around [ #(c v ] / XX))))
 
-		cb-y (around ralt (around [ #(c b - y XX)))
 		cb-u (tap-next-release (around ralt (around [ #(c b - u XX))) (around ralt (around [ #(c b ] u XX))))
 		cb-i (tap-next-release (around ralt (around [ #(c b - i XX))) (around ralt (around [ #(c b ] i XX))))
 		cb-o (tap-next-release (around ralt (around [ #(c b - o XX))) (around ralt (around [ #(c b ] o XX))))
@@ -1298,23 +1207,14 @@
 		cb-. (tap-next-release (around ralt (around [ #(c b - . XX))) (around ralt (around [ #(c b ] . XX))))
 		cb-/ (tap-next-release (around ralt (around [ #(c b - / XX))) (around ralt (around [ #(c b ] / XX))))
 
-		cn-. (around ralt (around ] #(c n - . XX)))
+	vs> (layer-toggle vs>)	;; 漢字用
+	vd> (layer-toggle vd>)	;; 漢字用
+	vx> (layer-toggle vx>)	;; 漢字用
+	vc> (layer-toggle vc>)	;; 漢字用
+	vp  (around ralt #(] v - p XX))	;; ぺ
+	vj  (around ralt #(] v - j XX))	;; ご
+	v;  (around ralt #(] v - ; XX)) ;; ぷ
 
-	va> (tap-next-press (around ralt #(] v - a XX)) (layer-toggle va>))
-	vs> (tap-next-press (around ralt #(] v - s XX)) (layer-toggle vs>))
-	vd> (tap-next-press (around ralt #(] v - d XX)) (layer-toggle vd>))
-	vx> (tap-next-press (around ralt #(] v - x XX)) (layer-toggle vx>))
-	vc> (tap-next-press (around ralt #(] v - c XX)) (layer-toggle vc>))
-	vp  (around ralt #(] v - p XX))
-	vj  (around ralt #(] v - j XX))
-	v;  (around ralt #(] v - ; XX))
-	vn  (around ralt #(] v - n XX))
-	v.  (around ralt #(] v - . XX))
-
-		va-i (around ralt (around ] #(v a - i XX)))
-		va-k (around ralt (around ] #(v a - k XX)))
-
-		vs-y (around ralt (around [ #(v s - y XX)))
 		vs-u (tap-next-release (around ralt (around [ #(v s - u XX))) (around ralt (around [ #(v s ] u XX))))
 		vs-i (tap-next-release (around ralt (around [ #(v s - i XX))) (around ralt (around [ #(v s ] i XX))))
 		vs-o (tap-next-release (around ralt (around [ #(v s - o XX))) (around ralt (around [ #(v s ] o XX))))
@@ -1330,7 +1230,6 @@
 		vs-. (tap-next-release (around ralt (around [ #(v s - . XX))) (around ralt (around [ #(v s ] . XX))))
 		vs-/ (tap-next-release (around ralt (around [ #(v s - / XX))) (around ralt (around [ #(v s ] / XX))))
 
-		vd-y (around ralt (around [ #(v d - y XX)))
 		vd-u (tap-next-release (around ralt (around [ #(v d - u XX))) (around ralt (around [ #(v d ] u XX))))
 		vd-i (tap-next-release (around ralt (around [ #(v d - i XX))) (around ralt (around [ #(v d ] i XX))))
 		vd-o (tap-next-release (around ralt (around [ #(v d - o XX))) (around ralt (around [ #(v d ] o XX))))
@@ -1346,7 +1245,6 @@
 		vd-. (tap-next-release (around ralt (around [ #(v d - . XX))) (around ralt (around [ #(v d ] . XX))))
 		vd-/ (tap-next-release (around ralt (around [ #(v d - / XX))) (around ralt (around [ #(v d ] / XX))))
 
-		vx-y (around ralt (around [ #(v x - y XX)))
 		vx-u (tap-next-release (around ralt (around [ #(v x - u XX))) (around ralt (around [ #(v x ] u XX))))
 		vx-i (tap-next-release (around ralt (around [ #(v x - i XX))) (around ralt (around [ #(v x ] i XX))))
 		vx-o (tap-next-release (around ralt (around [ #(v x - o XX))) (around ralt (around [ #(v x ] o XX))))
@@ -1362,7 +1260,6 @@
 		vx-. (tap-next-release (around ralt (around [ #(v x - . XX))) (around ralt (around [ #(v x ] . XX))))
 		vx-/ (tap-next-release (around ralt (around [ #(v x - / XX))) (around ralt (around [ #(v x ] / XX))))
 
-		vc-y (around ralt (around [ #(v c - y XX)))
 		vc-u (tap-next-release (around ralt (around [ #(v c - u XX))) (around ralt (around [ #(v c ] u XX))))
 		vc-i (tap-next-release (around ralt (around [ #(v c - i XX))) (around ralt (around [ #(v c ] i XX))))
 		vc-o (tap-next-release (around ralt (around [ #(v c - o XX))) (around ralt (around [ #(v c ] o XX))))
@@ -1378,61 +1275,49 @@
 		vc-. (tap-next-release (around ralt (around [ #(v c - . XX))) (around ralt (around [ #(v c ] . XX))))
 		vc-/ (tap-next-release (around ralt (around [ #(v c - / XX))) (around ralt (around [ #(v c ] / XX))))
 
-	bj  (around ralt #(] b - j XX))
+	bj  (around ralt #(] b - j XX))	;; ぞ
 
-	us-o (around ralt (around ] #(u s - o XX)))
-	ud-; (around ralt (around ] #(u d - ; XX)))
-	uf-o (around ralt (around ] #(u f - o XX)))
+	iw-j (around ralt (around ] #(i w - j XX)))	;; ぎょ
+	ir-j (around ralt (around ] #(i r - j XX)))	;; じょ
+	ig-j (around ralt (around ] #(i g - j XX)))	;; ぢょ
+	ix-j (around ralt (around ] #(i x - j XX)))	;; びょ
+	ix-m (around ralt (around ] #(i x - m XX)))	;; ぴょ
+	ij-w (around ralt (around ] #(i j - w XX)))	;; ぎょ
+	ij-r (around ralt (around ] #(i j - r XX)))	;; じょ
+	ij-g (around ralt (around ] #(i j - g XX)))	;; ぢょ
+	ij-x (around ralt (around ] #(i j - x XX)))	;; びょ
+	im-x (around ralt (around ] #(i m - x XX)))	;; ぴょ
 
-	iw-j (around ralt (around ] #(i w - j XX)))
-	ia-v (around ralt (around ] #(i a - v XX)))
-	ir-j (around ralt (around ] #(i r - j XX)))
-	ig-j (around ralt (around ] #(i g - j XX)))
-	ix-j (around ralt (around ] #(i x - j XX)))
-	ix-m (around ralt (around ] #(i x - m XX)))
-	ib-n (around ralt (around ] #(i b - n XX)))
-	ij-w (around ralt (around ] #(i j - w XX)))
-	ij-r (around ralt (around ] #(i j - r XX)))
-	ij-g (around ralt (around ] #(i j - g XX)))
-	ij-x (around ralt (around ] #(i j - x XX)))
-	im-x (around ralt (around ] #(i m - x XX)))
+	or-j (around ralt (around ] #(o r - j XX)))	;; ジェ
+	oj-r (around ralt (around ] #(o j - r XX)))	;; ジェ
 
-	or-j (around ralt (around ] #(o r - j XX)))
-	of-; (around ralt (around ] #(o f - ; XX)))
-	of-n (around ralt (around ] #(o f - n XX)))
-	oj-r (around ralt (around ] #(o j - r XX)))
-	o;-f (around ralt (around ] #(o ; - f XX)))
+	pw-j (around ralt (around ] #(p w - j XX)))	;; ぎゅ
+	pe-j (around ralt (around ] #(p e - j XX)))	;; デュ
+	pe-m (around ralt (around ] #(p e - m XX)))	;; テュ
+	pr-j (around ralt (around ] #(p r - j XX)))	;; じゅ
+	pg-j (around ralt (around ] #(p g - j XX)))	;; ぢゅ
+	px-j (around ralt (around ] #(p x - j XX)))	;; びゅ
+	px-m (around ralt (around ] #(p x - m XX)))	;; ぴゅ
+	pj-w (around ralt (around ] #(p j - w XX)))	;; ぎゅ
+	pj-r (around ralt (around ] #(p j - r XX)))	;; じゅ
+	pj-e (around ralt (around ] #(p j - e XX)))	;; デュ
+	pj-g (around ralt (around ] #(p j - g XX)))	;; ぢゅ
+	pj-x (around ralt (around ] #(p j - x XX)))	;; びゅ
+	pm-e (around ralt (around ] #(p m - e XX)))	;; テュ
+	pm-x (around ralt (around ] #(p m - x XX)))	;; ぴゅ
 
-	pw-j (around ralt (around ] #(p w - j XX)))
-	pe-j (around ralt (around ] #(p e - j XX)))
-	pe-m (around ralt (around ] #(p e - m XX)))
-	pr-j (around ralt (around ] #(p r - j XX)))
-	pf-; (around ralt (around ] #(p f - ; XX)))
-	pg-j (around ralt (around ] #(p g - j XX)))
-	px-j (around ralt (around ] #(p x - j XX)))
-	px-m (around ralt (around ] #(p x - m XX)))
-	pj-w (around ralt (around ] #(p j - w XX)))
-	pj-r (around ralt (around ] #(p j - r XX)))
-	pj-e (around ralt (around ] #(p j - e XX)))
-	pj-g (around ralt (around ] #(p j - g XX)))
-	pj-x (around ralt (around ] #(p j - x XX)))
-	p;-f (around ralt (around ] #(p ; - f XX)))
-	pm-e (around ralt (around ] #(p m - e XX)))
-	pm-x (around ralt (around ] #(p m - x XX)))
-
-	hw-j (around ralt (around ] #(h w - j XX)))
-	hr-a (around ralt (around ] #(h r - a XX)))
-	hr-j (around ralt (around ] #(h r - j XX)))
-	hf-j (around ralt (around ] #(h f - j XX)))
-	hg-j (around ralt (around ] #(h g - j XX)))
-	hx-j (around ralt (around ] #(h x - j XX)))
-	hx-m (around ralt (around ] #(h x - m XX)))
-	hj-w (around ralt (around ] #(h j - w XX)))
-	hj-r (around ralt (around ] #(h j - r XX)))
-	hj-f (around ralt (around ] #(h j - f XX)))
-	hj-g (around ralt (around ] #(h j - g XX)))
-	hj-x (around ralt (around ] #(h j - x XX)))
-	hm-x (around ralt (around ] #(h m - x XX)))
+	hw-j (around ralt (around ] #(h w - j XX)))	;; ぎゃ
+	hr-j (around ralt (around ] #(h r - j XX)))	;; じゃ
+	hf-j (around ralt (around ] #(h f - j XX)))	;; グァ
+	hg-j (around ralt (around ] #(h g - j XX)))	;; ぢゃ
+	hx-j (around ralt (around ] #(h x - j XX)))	;; びゃ
+	hx-m (around ralt (around ] #(h x - m XX)))	;; ぴゃ
+	hj-w (around ralt (around ] #(h j - w XX)))	;; ぎゃ
+	hj-r (around ralt (around ] #(h j - r XX)))	;; じゃ
+	hj-f (around ralt (around ] #(h j - f XX)))	;; グァ
+	hj-g (around ralt (around ] #(h j - g XX)))	;; ぢゃ
+	hj-x (around ralt (around ] #(h j - x XX)))	;; びゃ
+	hm-x (around ralt (around ] #(h m - x XX)))	;; ぴゃ
 
 	jw-i (around ralt (around ] #(j w - i XX)))	;; ぎょ
 	jw-p (around ralt (around ] #(j w - p XX)))	;; ぎゅ
@@ -1766,7 +1651,7 @@
 
 	(deflayer rw>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @rw-y    @rw-u    @rw-i    @rw-o    @rw-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @rw-u    @rw-i    @rw-o    @rw-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @rw-h    @rw-j    @rw-k    @rw-l    @rw-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @rw-n    @rw-m    @rw-,    @rw-.    @rw-/
 	    XX                                                    @spc&sft                   XX
@@ -1774,7 +1659,7 @@
 
 	(deflayer re>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @re-y    @re-u    @re-i    @re-o    @re-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @re-u    @re-i    @re-o    @re-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @re-h    @re-j    @re-k    @re-l    @re-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @re-n    @re-m    @re-,    @re-.    @re-/
 	    XX                                                    @spc&sft                   XX
@@ -1839,14 +1724,14 @@
 (deflayer kana-s
              XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
     XX       @sq      XX       @se>     @sr>     XX       XX       XX       XX       @si      XX       @sp	XX
-    XX       XX       XX       @sd>     @sf>     XX       XX       @sh      @sj      @sk>     XX       XX       XX
+    XX       XX       XX       @sd>     @sf>     XX       XX       @sh      @sj      XX       XX       XX       XX
     XX       XX       XX       @sc>     @sv>     XX       XX       XX       XX       XX       XX       XX
     XX                                                    @spc&sft                   XX
 )
 
 	(deflayer se>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @se-y    @se-u    @se-i    @se-o    @se-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @se-u    @se-i    @se-o    @se-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @se-h    @se-j    @se-k    @se-l    @se-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @se-n    @se-m    @se-,    @se-.    @se-/
 	    XX                                                    @spc&sft                   XX
@@ -1854,7 +1739,7 @@
 	
 	(deflayer sr>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @sr-y    @sr-u    @sr-i    @sr-o    @sr-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @sr-u    @sr-i    @sr-o    @sr-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @sr-h    @sr-j    @sr-k    @sr-l    @sr-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @sr-n    @sr-m    @sr-,    @sr-.    @sr-/
 	    XX                                                    @spc&sft                   XX
@@ -1862,7 +1747,7 @@
 	
 	(deflayer sd>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @sd-y    @sd-u    @sd-i    @sd-o    @sd-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @sd-u    @sd-i    @sd-o    @sd-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @sd-h    @sd-j    @sd-k    @sd-l    @sd-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @sd-n    @sd-m    @sd-,    @sd-.    @sd-/
 	    XX                                                    @spc&sft                   XX
@@ -1870,7 +1755,7 @@
 	
 	(deflayer sf>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @sf-y    @sf-u    @sf-i    @sf-o    @sf-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @sf-u    @sf-i    @sf-o    @sf-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @sf-h    @sf-j    @sf-k    @sf-l    @sf-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @sf-n    @sf-m    @sf-,    @sf-.    @sf-/
 	    XX                                                    @spc&sft                   XX
@@ -1878,7 +1763,7 @@
 	
 	(deflayer sc>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @sc-y    @sc-u    @sc-i    @sc-o    @sc-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @sc-u    @sc-i    @sc-o    @sc-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @sc-h    @sc-j    @sc-k    @sc-l    @sc-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @sc-n    @sc-m    @sc-,    @sc-.    @sc-/
 	    XX                                                    @spc&sft                   XX
@@ -1886,31 +1771,23 @@
 	
 	(deflayer sv>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @sv-y    @sv-u    @sv-i    @sv-o    @sv-p	XX
-	    XX       XX       XX       @sv-d    XX       XX       XX       @sv-h    @sv-j    @sv-k    @sv-l    @sv-;    XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @sv-u    @sv-i    @sv-o    @sv-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @sv-h    @sv-j    @sv-k    @sv-l    @sv-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @sv-n    @sv-m    @sv-,    @sv-.    @sv-/
 	    XX                                                    @spc&sft                   XX
 	)
 	
-	(deflayer sk>
-	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @sk-j    XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX                                                    @spc&sft                   XX
-	)
-
 (deflayer kana-d
              XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
     XX       XX       @dw>     XX       @dr>     @dt>     XX       XX       XX       @di      XX       @dp	XX
-    XX       XX       @ds>     XX       @df>     @dg>     XX       @dh      @dj>     @dk>     @dl>     XX       XX
-    XX       XX       XX       XX       @dv>     @db>     XX       XX       XX       XX       XX       XX
+    XX       XX       @ds>     XX       @df>     @dg>     XX       @dh      @dj>     XX       @dl>     XX       XX
+    XX       XX       XX       XX       @dv>     XX       XX       XX       XX       XX       XX       XX
     XX                                                    @spc&sft                   XX
 )
 
 	(deflayer dw>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @dw-y    @dw-u    @dw-i    @dw-o    @dw-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @dw-u    @dw-i    @dw-o    @dw-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @dw-h    @dw-j    @dw-k    @dw-l    @dw-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @dw-n    @dw-m    @dw-,    @dw-.    @dw-/
 	    XX                                                    @spc&sft                   XX
@@ -1918,7 +1795,7 @@
 	
 	(deflayer dr>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       @dr-w    XX       XX       XX       XX       @dr-y    @dr-u    @dr-i    @dr-o    @dr-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @dr-u    @dr-i    @dr-o    @dr-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @dr-h    @dr-j    @dr-k    @dr-l    @dr-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @dr-n    @dr-m    @dr-,    @dr-.    @dr-/
 	    XX                                                    @spc&sft                   XX
@@ -1926,7 +1803,7 @@
 	
 	(deflayer dt>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @dt-y    @dt-u    @dt-i    @dt-o    @dt-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @dt-u    @dt-i    @dt-o    @dt-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @dt-h    @dt-j    @dt-k    @dt-l    @dt-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @dt-n    @dt-m    @dt-,    @dt-.    @dt-/
 	    XX                                                    @spc&sft                   XX
@@ -1934,7 +1811,7 @@
 	
 	(deflayer ds>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @ds-y    @ds-u    @ds-i    @ds-o    @ds-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @ds-u    @ds-i    @ds-o    @ds-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @ds-h    @ds-j    @ds-k    @ds-l    @ds-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @ds-n    @ds-m    @ds-,    @ds-.    @ds-/
 	    XX                                                    @spc&sft                   XX
@@ -1942,7 +1819,7 @@
 	
 	(deflayer df>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @df-y    @df-u    @df-i    @df-o    @df-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @df-u    @df-i    @df-o    @df-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @df-h    @df-j    @df-k    @df-l    @df-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @df-n    @df-m    @df-,    @df-.    @df-/
 	    XX                                                    @spc&sft                   XX
@@ -1950,7 +1827,7 @@
 	
 	(deflayer dg>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @dg-y    @dg-u    @dg-i    @dg-o    @dg-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @dg-u    @dg-i    @dg-o    @dg-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @dg-h    @dg-j    @dg-k    @dg-l    @dg-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @dg-n    @dg-m    @dg-,    @dg-.    @dg-/
 	    XX                                                    @spc&sft                   XX
@@ -1958,17 +1835,9 @@
 	
 	(deflayer dv>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @dv-y    @dv-u    @dv-i    @dv-o    @dv-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @dv-u    @dv-i    @dv-o    @dv-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @dv-h    @dv-j    @dv-k    @dv-l    @dv-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @dv-n    @dv-m    @dv-,    @dv-.    @dv-/
-	    XX                                                    @spc&sft                   XX
-	)
-	
-	(deflayer db>
-	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       @db-.    XX
 	    XX                                                    @spc&sft                   XX
 	)
 	
@@ -1977,14 +1846,6 @@
 	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
 	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       @dj-l    XX       XX
 	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX                                                    @spc&sft                   XX
-	)
-	
-	(deflayer dk>
-	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @dk-m    XX       XX       XX
 	    XX                                                    @spc&sft                   XX
 	)
 	
@@ -2006,7 +1867,7 @@
 
 	(deflayer fe>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @fe-y    @fe-u    @fe-i    @fe-o    @fe-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @fe-u    @fe-i    @fe-o    @fe-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @fe-h    @fe-j    @fe-k    @fe-l    @fe-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @fe-n    @fe-m    @fe-,    @fe-.    @fe-/
 	    XX                                                    @spc&sft                   XX
@@ -2014,7 +1875,7 @@
 	
 	(deflayer fs>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @fs-y    @fs-u    @fs-i    @fs-o    @fs-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @fs-u    @fs-i    @fs-o    @fs-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @fs-h    @fs-j    @fs-k    @fs-l    @fs-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @fs-n    @fs-m    @fs-,    @fs-.    @fs-/
 	    XX                                                    @spc&sft                   XX
@@ -2022,7 +1883,7 @@
 	
 	(deflayer fd>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @fd-y    @fd-u    @fd-i    @fd-o    @fd-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @fd-u    @fd-i    @fd-o    @fd-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @fd-h    @fd-j    @fd-k    @fd-l    @fd-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @fd-n    @fd-m    @fd-,    @fd-.    @fd-/
 	    XX                                                    @spc&sft                   XX
@@ -2055,7 +1916,7 @@
 	(deflayer fj>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
 	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
-	    XX       XX       XX       XX       XX       XX       XX       @fj-h    XX       XX       XX       @fj-;    XX
+	    XX       XX       XX       XX       XX       XX       XX       @fj-h    XX       XX       XX       XX       XX
 	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
 	    XX                                                    @spc&sft                   XX
 	)
@@ -2078,17 +1939,9 @@
 	
 	(deflayer f;>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       @f;-o    @f;-p	XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @f;-j    @f;-k    @f;-l    XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @f;-n    XX       XX       XX       XX
-	    XX                                                    @spc&sft                   XX
-	)
-	
-	(deflayer fn>
-	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       @fn-i    XX       XX	XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       @fn-;    XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       @fn-.    @fn-/
+	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       @f;-l    XX       XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
 	    XX                                                    @spc&sft                   XX
 	)
 	
@@ -2134,39 +1987,23 @@
 
 (deflayer kana-z
              XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-    XX       XX       XX       @ze      @zr      XX       XX       XX       XX       XX       XX       XX	XX
-    XX       XX       XX       @zd>     @zf      XX       XX       XX       @zj      XX       XX       XX       XX
-    XX       XX       XX       XX       @zv      XX       XX       @zn>     @zm      @z,      @z.      XX
+    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
+    XX       XX       XX       XX       XX       XX       XX       XX       @zj      XX       XX       XX       XX
+    XX       XX       XX       XX       XX       XX       XX       XX       @zm      XX       XX       XX
     XX                                                    @spc&sft                   XX
 )
 
-	(deflayer zd>
-	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
-	    XX       XX       @zd-s    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX                                                    @spc&sft                   XX
-	)
-
-	(deflayer zn>
-	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       @zn-i    XX       XX	XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX                                                    @spc&sft                   XX
-	)
-
 (deflayer kana-x
              XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-    XX       XX       XX       XX       @xr      XX       XX       XX       @xu      @xi>     XX       @xp>	XX
-    XX       @xa      XX       @xd>     @xf>     XX       XX       @xh>     @xj>     XX       XX       XX       XX
-    XX       XX       XX       @xc>     @xv>     XX       XX       @xn>     @xm>     XX       XX       XX
+    XX       XX       XX       XX       XX       XX       XX       XX       XX       @xi>     XX       @xp>	XX
+    XX       XX       XX       @xd>     @xf>     XX       XX       @xh>     @xj>     XX       XX       XX       XX
+    XX       XX       XX       @xc>     @xv>     XX       XX       XX       @xm>     XX       XX       XX
     XX                                                    @spc&sft                   XX
 )
 
 	(deflayer xd>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @xd-y    @xd-u    @xd-i    @xd-o    @xd-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @xd-u    @xd-i    @xd-o    @xd-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @xd-h    @xd-j    @xd-k    @xd-l    @xd-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @xd-n    @xd-m    @xd-,    @xd-.    @xd-/
 	    XX                                                    @spc&sft                   XX
@@ -2174,7 +2011,7 @@
 
 	(deflayer xf>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @xf-y    @xf-u    @xf-i    @xf-o    @xf-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @xf-u    @xf-i    @xf-o    @xf-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @xf-h    @xf-j    @xf-k    @xf-l    @xf-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @xf-n    @xf-m    @xf-,    @xf-.    @xf-/
 	    XX                                                    @spc&sft                   XX
@@ -2182,7 +2019,7 @@
 
 	(deflayer xc>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @xc-y    @xc-u    @xc-i    @xc-o    @xc-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @xc-u    @xc-i    @xc-o    @xc-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @xc-h    @xc-j    @xc-k    @xc-l    @xc-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @xc-n    @xc-m    @xc-,    @xc-.    @xc-/
 	    XX                                                    @spc&sft                   XX
@@ -2190,7 +2027,7 @@
 
 	(deflayer xv>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @xv-y    @xv-u    @xv-i    @xv-o    @xv-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @xv-u    @xv-i    @xv-o    @xv-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @xv-h    @xv-j    @xv-k    @xv-l    @xv-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @xv-n    @xv-m    @xv-,    @xv-.    @xv-/
 	    XX                                                    @spc&sft                   XX
@@ -2228,14 +2065,6 @@
 	    XX                                                    @spc&sft                   XX
 	)
 
-	(deflayer xn>
-	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       @xn-k    XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX                                                    @spc&sft                   XX
-	)
-
 	(deflayer xm>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
 	    XX       XX       XX       XX       XX       XX       XX       XX       XX       @xm-i    XX       @xm-p	XX
@@ -2246,15 +2075,15 @@
 
 (deflayer kana-c
              XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-    XX       XX       XX       XX       XX       XX       XX       XX       @cu      @ci      XX       XX	XX
-    XX       XX       @cs>     XX       @cf      @cg>     XX       @ch      @cj      @ck      XX       XX       XX
-    XX       XX       @cx>     XX       @cv      @cb>     XX       @cn>     @cm      XX       @c.      XX
+    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
+    XX       XX       @cs>     XX       XX       @cg>     XX       XX       @cj      XX       XX       XX       XX
+    XX       XX       @cx>     XX       @cv>     @cb>     XX       XX       @cm      XX       XX       XX
     XX                                                    @spc&sft                   XX
 )
 
 	(deflayer cs>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @cs-y    @cs-u    @cs-i    @cs-o    @cs-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @cs-u    @cs-i    @cs-o    @cs-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @cs-h    @cs-j    @cs-k    @cs-l    @cs-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @cs-n    @cs-m    @cs-,    @cs-.    @cs-/
 	    XX                                                    @spc&sft                   XX
@@ -2262,7 +2091,7 @@
 
 	(deflayer cg>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @cg-y    @cg-u    @cg-i    @cg-o    @cg-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @cg-u    @cg-i    @cg-o    @cg-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @cg-h    @cg-j    @cg-k    @cg-l    @cg-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @cg-n    @cg-m    @cg-,    @cg-.    @cg-/
 	    XX                                                    @spc&sft                   XX
@@ -2270,7 +2099,7 @@
 
 	(deflayer cx>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @cx-y    @cx-u    @cx-i    @cx-o    @cx-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @cx-u    @cx-i    @cx-o    @cx-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @cx-h    @cx-j    @cx-k    @cx-l    @cx-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @cx-n    @cx-m    @cx-,    @cx-.    @cx-/
 	    XX                                                    @spc&sft                   XX
@@ -2278,7 +2107,7 @@
 
 	(deflayer cv>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @cv-y    @cv-u    @cv-i    @cv-o    @cv-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @cv-u    @cv-i    @cv-o    @cv-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @cv-h    @cv-j    @cv-k    @cv-l    @cv-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @cv-n    @cv-m    @cv-,    @cv-.    @cv-/
 	    XX                                                    @spc&sft                   XX
@@ -2286,39 +2115,23 @@
 
 	(deflayer cb>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @cb-y    @cb-u    @cb-i    @cb-o    @cb-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @cb-u    @cb-i    @cb-o    @cb-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @cb-h    @cb-j    @cb-k    @cb-l    @cb-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @cb-n    @cb-m    @cb-,    @cb-.    @cb-/
-	    XX                                                    @spc&sft                   XX
-	)
-
-	(deflayer cn>
-	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       @cn-.    XX
 	    XX                                                    @spc&sft                   XX
 	)
 
 (deflayer kana-v
              XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
     XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       @vp	XX
-    XX       @va>     @vs>     @vd>     XX       XX       XX       XX       @vj      XX       XX       @v;      XX
-    XX       XX       @vx>     @vc>     XX       XX       XX       @vn      XX       XX       @v.      XX
+    XX       XX       @vs>     @vd>     XX       XX       XX       XX       @vj      XX       XX       @v;      XX
+    XX       XX       @vx>     @vc>     XX       XX       XX       XX       XX       XX       XX       XX
     XX                                                    @spc&sft                   XX
 )
 
-	(deflayer va>
-	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       @va-i    XX       XX	XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       @va-k    XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX                                                    @spc&sft                   XX
-	)
-
 	(deflayer vs>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @vs-y    @vs-u    @vs-i    @vs-o    @vs-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @vs-u    @vs-i    @vs-o    @vs-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @vs-h    @vs-j    @vs-k    @vs-l    @vs-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @vs-n    @vs-m    @vs-,    @vs-.    @vs-/
 	    XX                                                    @spc&sft                   XX
@@ -2326,7 +2139,7 @@
 
 	(deflayer vd>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @vd-y    @vd-u    @vd-i    @vd-o    @vd-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @vd-u    @vd-i    @vd-o    @vd-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @vd-h    @vd-j    @vd-k    @vd-l    @vd-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @vd-n    @vd-m    @vd-,    @vd-.    @vd-/
 	    XX                                                    @spc&sft                   XX
@@ -2334,7 +2147,7 @@
 
 	(deflayer vx>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @vx-y    @vx-u    @vx-i    @vx-o    @vx-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @vx-u    @vx-i    @vx-o    @vx-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @vx-h    @vx-j    @vx-k    @vx-l    @vx-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @vx-n    @vx-m    @vx-,    @vx-.    @vx-/
 	    XX                                                    @spc&sft                   XX
@@ -2342,7 +2155,7 @@
 
 	(deflayer vc>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @vc-y    @vc-u    @vc-i    @vc-o    @vc-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @vc-u    @vc-i    @vc-o    @vc-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @vc-h    @vc-j    @vc-k    @vc-l    @vc-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @vc-n    @vc-m    @vc-,    @vc-.    @vc-/
 	    XX                                                    @spc&sft                   XX
@@ -2366,41 +2179,17 @@
 
 (deflayer kana-u
              XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-    XX       XX       @uw      @ue      @ur      XX       XX       XX       XX       @ui      XX       XX	XX
-    XX       XX       @us>     @ud>     @uf>     @ug      XX       XX       XX       @uk      XX       XX       XX
-    XX       XX       @ux      @uc      @uv      XX       XX       XX       XX       XX       @u.      XX
+    XX       XX       @uw      @ue      @ur      XX       XX       XX       XX       XX       XX       XX	XX
+    XX       XX       @us      @ud      @uf      @ug      XX       XX       XX       XX       XX       XX       XX
+    XX       XX       @ux      @uc      @uv      XX       XX       XX       XX       XX       XX       XX
     XX                                                    @spc&sft                   XX
 )
-
-	(deflayer us>
-	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       @us-o    XX	XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX                                                    @spc&sft                   XX
-	)
-
-	(deflayer ud>
-	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       @ud-;    XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX                                                    @spc&sft                   XX
-	)
-
-	(deflayer uf>
-	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       @uf-o    XX	XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX                                                    @spc&sft                   XX
-	)
 
 (deflayer kana-i
              XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
     XX       @iq      @iw>     @ie      @ir>     XX       XX       XX       XX       XX       @io      XX	XX
-    XX       @ia>     @is      @id      @if      @ig>     XX       XX       @ij>     XX       XX       XX       XX
-    XX       XX       @ix>     @ic      @iv      @ib>     XX       XX       @im>     XX       @i.      XX
+    XX       XX       @is      @id      @if      @ig>     XX       XX       @ij>     XX       XX       XX       XX
+    XX       XX       @ix>     @ic      @iv      XX       XX       XX       @im>     XX       @i.      XX
     XX                                                    @spc&sft                   XX
 )
 
@@ -2409,14 +2198,6 @@
 	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
 	    XX       XX       XX       XX       XX       XX       XX       XX       @iw-j    XX       XX       XX       XX
 	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX                                                    @spc&sft                   XX
-	)
-
-	(deflayer ia>
-	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       @ia-v    XX       XX       XX       XX       XX       XX       XX
 	    XX                                                    @spc&sft                   XX
 	)
 
@@ -2444,14 +2225,6 @@
 	    XX                                                    @spc&sft                   XX
 	)
 
-	(deflayer ib>
-	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       @ib-n    XX       XX       XX       XX
-	    XX                                                    @spc&sft                   XX
-	)
-
 	(deflayer ij>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
 	    XX       XX       @ij-w    XX       @ij-r    XX       XX       XX       XX       XX       XX       XX	XX
@@ -2470,9 +2243,9 @@
 
 (deflayer kana-o
              XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-    XX       @oq      @ow      @oe      @or>     XX       XX       XX       XX       @oi      XX       XX	XX
-    XX       XX       @os      @od      @of>     @og      XX       @oh      @oj>     @ok      @ol      @o;>     XX
-    XX       XX       @ox      @oc      @ov      @ob      XX       @on      @om      XX       XX       XX
+    XX       @oq      @ow      @oe      @or>     XX       XX       XX       XX       XX       XX       XX	XX
+    XX       XX       @os      @od      @of      @og      XX       @oh      @oj>     @ok      @ol      @o;      XX
+    XX       XX       @ox      @oc      @ov      @ob      XX       XX       XX       XX       XX       XX
     XX                                                    @spc&sft                   XX
 )
 
@@ -2484,14 +2257,6 @@
 	    XX                                                    @spc&sft                   XX
 	)
 	
-	(deflayer of>
-	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       @of-;    XX
-	    XX       XX       XX       XX       XX       XX       XX       @of-n    XX       XX       XX       XX
-	    XX                                                    @spc&sft                   XX
-	)
-	
 	(deflayer oj>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
 	    XX       XX       XX       XX       @oj-r    XX       XX       XX       XX       XX       XX       XX	XX
@@ -2500,18 +2265,10 @@
 	    XX                                                    @spc&sft                   XX
 	)
 	
-	(deflayer o;>
-	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
-	    XX       XX       XX       XX       @o;-f    XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX                                                    @spc&sft                   XX
-	)
-
 (deflayer kana-p
              XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-    XX       @pq      @pw>     @pe>     @pr>     XX       XX       XX       XX       @pi      @po      XX	XX
-    XX       XX       @ps      @pd      @pf>     @pg>     XX       XX       @pj>     XX       @pl      @p;>     XX
+    XX       @pq      @pw>     @pe>     @pr>     XX       XX       XX       XX       XX       XX       XX	XX
+    XX       XX       @ps      @pd      @pf      @pg>     XX       XX       @pj>     XX       XX       @p;      XX
     XX       XX       @px>     @pc      @pv      XX       XX       XX       @pm>     XX       XX       XX
     XX                                                    @spc&sft                   XX
 )
@@ -2540,14 +2297,6 @@
 	    XX                                                    @spc&sft                   XX
 	)
 	
-	(deflayer pf>
-	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       @pf-;    XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX                                                    @spc&sft                   XX
-	)
-	
 	(deflayer pg>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
 	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
@@ -2569,14 +2318,6 @@
 	    XX       XX       @pj-w    @pj-e    @pj-r    XX       XX       XX       XX       XX       XX       XX	XX
 	    XX       XX       XX       XX       XX       @pj-g    XX       XX       XX       XX       XX       XX       XX
 	    XX       XX       @pj-x    XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX                                                    @spc&sft                   XX
-	)
-	
-	(deflayer p;>
-	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
-	    XX       XX       XX       XX       @p;-f    XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
 	    XX                                                    @spc&sft                   XX
 	)
 	
@@ -2607,7 +2348,7 @@
 	(deflayer hr>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
 	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
-	    XX       @hr-a    XX       XX       XX       XX       XX       XX       @hr-j    XX       XX       XX       XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       @hr-j    XX       XX       XX       XX
 	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
 	    XX                                                    @spc&sft                   XX
 	)
