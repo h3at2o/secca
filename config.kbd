@@ -17,7 +17,6 @@
 	zenkaku  (tap-next (layer-switch zenkaku) (around lctl (layer-toggle roma0)))
 	bsl&alt  (tap-next ] (around lalt (layer-toggle roma0)))
 	spc&sft  (tap-next spc lsft)
-	ret      (tap-next ret (layer-toggle zen_num))
 	tab      (tap-next tab (layer-toggle move))
 	esc      (tap-next #(esc P10 (layer-switch roma1)) (layer-toggle zen_num))
 	kana     (layer-switch kana1)
@@ -42,46 +41,67 @@
 	swb      (around lmet (around lalt #(down XX)))
 
 
-	[]   #([ ] lsft P5 left)
-	{}   #({ } lsft P5 left)
-	prts #(\( \) lsft P5 left)
-
 ;;  全角数字･記号
-	`     #(ralt ' `)
-	1     #(ralt ' 1)
-	SFT2  (tap-next #(ralt ' 2) (layer-toggle SFT2))
-	3     #(ralt ' 3)
-	4     #(ralt ' 4)
-	SFT5  (tap-next #(ralt ' 5) (layer-toggle SFT5))
-	6     #(ralt ' 6)
-	7     #(ralt ' 7)
-	SFT8  (tap-next #(ralt ' 8) (layer-toggle SFT8))
-	9     #(ralt ' 9)
-	0     #(ralt ' 0)
-	-     #(ralt ' -)
-	=     #(ralt ' =)
-	[     #(ralt ' [)
-	]     #(ralt ' ])
-	\\    #(ralt ' \\)
-	spc   #(ralt ' spc)
+	`     #(ralt ' `)					;; ｀
+	1     #(ralt ' 1)					;; １
+	SFT2  (tap-next #(ralt ' 2) (layer-toggle SFT2))	;; ２
+	3     #(ralt ' 3)					;; ３
+	4     #(ralt ' 4)					;; ４
+	SFT5  (tap-next #(ralt ' 5) (layer-toggle SFT5))	;; ５
+	6     #(ralt ' 6)					;; ６
+	7     #(ralt ' 7)					;; ７
+	SFT8  (tap-next #(ralt ' 8) (layer-toggle SFT8))	;; ８	
+	9     #(ralt ' 9)					;; ９
+	0     #(ralt ' 0)					;; ０
+	-     #(ralt ' -)					;; －
+	=     #(ralt ' =)					;; ＝
+	[     #(ralt ' [)					;; ［
+	]     #(ralt ' ])					;; ］
+	\\    #(ralt ' \\)					;; ＼
+	spc   #(ralt ' spc)					;; 全角スペース
 
-	~     #(ralt " ~)
-	!     #(ralt " !)
-	@     #(ralt " @)
-	#     #(ralt " #)
-	$     #(ralt " $)
-	%     #(ralt " %)
-	^     #(ralt " ^)
-	&     #(ralt " &)
-	*     #(ralt " *)
-	\_    #(ralt " \_)
-	+     #(ralt " +)
-	|     #(ralt " |)
+	~     #(ralt " ~)					;; ～
+	!     #(ralt " !)					;; ！
+	SFT!  (tap-next #(ralt " ! XX) (layer-toggle SFT!))
+	@     #(ralt " @)					;; ＠
+	#     #(ralt " #)					;; ＃
+	$     #(ralt " $)					;; ＄
+	%     #(ralt " %)					;; ％
+	^     #(ralt " ^)					;; ＾
+	&     #(ralt " &)					;; ＆
+	*     #(ralt " *)					;; ＊
+	PL    #(ralt " \()					;; （
+	PR    #(ralt " \))					;; ）
+	\_    #(ralt " \_)					;; ＿
+	+     #(ralt " +)					;; ＋
+	{     #(ralt " [)					;; ｛
+	}     #(ralt " ])					;; ｝
+	|     #(ralt " |)					;; ｜
+
+	':   #(ralt " :)					;; ：
+	'<   #(ralt " <)					;; ＜
+	'>   #(ralt " >)					;; ＞
+	'?   #(ralt " ?)					;; ？
+	SFT?  (tap-next #(ralt " ? XX) (layer-toggle SFT?))
+
+	``    #(ralt ` `)	;; 〝
+	`'    #(ralt ` ')	;; 〞
+	`[    #(ralt ` [)
+	`]    #(ralt ` ])
+	`{    #(ralt ` {)
+	`}    #(ralt ` })
+	`<    #(ralt ` < XX)
+	`>    #(ralt ` > XX)
+	`PL   #(ralt ` \( XX)
+	`PR   #(ralt ` \) XX)
+	`/    #(ralt ` /)
+	`2.   #(ralt ` . ralt ` .)
+	`2-   #(ralt ` - ralt ` -)
 
 ;;  シフトかな prefix(tap="=")
 	Q   #(ralt = q XX)
 	W   #(ralt = w XX)
-	E  (tap-next-release (around ralt #(= e XX)) (around ralt #(] ] e XX)))	;; テュ
+	E   (tap-next-release (around ralt #(= e XX)) (around ralt #(] ] e XX)))	;; テュ
 	R   #(ralt = r XX)
 	T   (around lsft left)
 	A   #(ralt = a XX)
@@ -97,29 +117,19 @@
 	Y   (around lsft right)
 	U   #(ralt = u XX)
 	I   #(ralt = i XX)
-	O  (tap-next-release (around ralt #(= o XX)) (around ralt #(] ] o XX)))	;; ツァ行用
-	P  (tap-next-release (around ralt #(= p XX)) (around ralt #(] ] p XX)))	;; テュ
+	O   (tap-next-release (around ralt #(= o XX)) (around ralt #(] ] o XX)))	;; ツァ行用
+	P   (tap-next-release (around ralt #(= p XX)) (around ralt #(] ] p XX)))	;; テュ
 	H   #(ralt = h XX)
-	J  (tap-next-release (around ralt #(= j XX)) (around ralt #(] ] j XX)))	;; ツァ行用
-	K  (tap-next-release (around ralt #(= k XX)) (around ralt #(] ] k XX)))	;; ツァ行用
-	L  (tap-next-release (around ralt #(= l XX)) (around ralt #(] ] l XX)))	;; ツァ行用
+	J   (tap-next-release (around ralt #(= j XX)) (around ralt #(] ] j XX)))	;; ツァ行用
+	K   (tap-next-release (around ralt #(= k XX)) (around ralt #(] ] k XX)))	;; ツァ行用
+	L   (tap-next-release (around ralt #(= l XX)) (around ralt #(] ] l XX)))	;; ツァ行用
 	:   #(ralt = ; XX)
-	N  (tap-next-release (around ralt #(= n XX)) (around ralt #(] ] n XX)))	;; ツァ行用
+	N   (tap-next-release (around ralt #(= n XX)) (around ralt #(] ] n XX)))	;; ツァ行用
 	M   #(ralt = m XX)
 	<   #(ralt = , XX)
 	>   #(ralt = . XX)
 	?   #(ralt = / XX)
 
-	'':   #(ralt " : XX)
-	''<   #(ralt " < XX)
-	''>   #(ralt " > XX)
-	''?   #(ralt " ?)
-	sft?  (tap-next #(ralt " ? XX) (layer-toggle sft?))
-	sft!  (tap-next #(ralt " ! XX) (layer-toggle sft!))
-	''{   #(ralt " \( XX)
-	''}   #(ralt " \) XX)
-	'{    #(ralt ' [ XX)
-	'}    #(ralt ' ] XX)
 
 	'q    #(ralt ' q XX)
 	'w    #(ralt ' w XX)
@@ -152,21 +162,8 @@
 	'.    #(ralt ' . XX)
 	'/    #(ralt ' / XX)
 
-	1spc  #(ralt ' spc)
-	2.    #(ralt ` . ralt ` .)
-	2-    #(ralt ` - ralt ` -)
+	'spc  #(ralt ' spc)
 
-	z`    #(ralt ` `)
-	z'    #(ralt ` ')
-	z{}   #(lsft @'{ @'} P5 left)
-	Z[    #(ralt ` [)
-	Z]    #(ralt ` ])
-	`PRTS #(lsft ralt ` \( ralt ` \) P5 left)
-	Z{    #(ralt ` {)
-	Z}    #(ralt ` })
-	sft/  (tap-next #(ralt ` / XX) (layer-toggle sft/))
-	`=    #(ralt ` =)
-	`0    #(ralt ` 0)
 	sft8  (tap-next 8 (layer-toggle sft8))
 	sft5  (tap-next 5 (layer-toggle sft5))
 	sft2  (tap-next 2 (layer-toggle sft2))
@@ -1445,8 +1442,8 @@
 (deflayer num
              XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
     XX       %        7        @sft8    9        /        XX       XX       XX       XX       XX       XX	XX
-    XX       0        4        @sft5    6        -        XX       XX       @ret     XX       @esc     XX       XX
-    XX       :        1        @sft2    3        .        XX       @ret     bspc     XX       @tab     '
+    XX       0        4        @sft5    6        -        XX       XX       ret      XX       @esc     XX       XX
+    XX       :        1        @sft2    3        .        XX       ret      bspc     XX       @tab     '
     XX                                                    @num2                      XX
 )
 
@@ -1460,9 +1457,9 @@
 
 (deflayer sft5
              XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-    XX       XX       [        XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
-    XX       XX       {        XX       }        ~        XX       XX       XX       XX       XX       XX	XX
-    XX       XX       XX       XX       ]        XX       XX       XX       XX       XX       XX       XX
+    XX       XX       {        XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
+    XX       XX       [        XX       ]        ~        XX       XX       XX       XX       XX       XX	XX
+    XX       XX       XX       XX       }        XX       XX       XX       XX       XX       XX       XX
     XX                                                    @spc&sft                   XX
 )
 
@@ -1477,16 +1474,16 @@
 (deflayer kana-,
              XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
     XX       %        @,w      @,e      @,r      /        XX       XX       XX       XX       XX       XX	XX
-    XX       0        @,s      @,d      @,f      -        XX       XX       @ret     XX       @esc     XX       XX
-    XX       :        @,x      @,c      @,v      .        XX       @ret     bspc     XX       @tab     '
+    XX       0        @,s      @,d      @,f      -        XX       XX       ret      XX       @esc     XX       XX
+    XX       :        @,x      @,c      @,v      .        XX       ret      bspc     XX       @tab     '
     XX                                                    @num2                      XX
 )
 
 (deflayer num2
              XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
     XX       @        &        =        |        \\       XX       XX       XX       XX       XX       XX	XX	;; 
-    XX       #        +        ?        *        \_       XX       XX       @ret     XX       @esc     XX       XX
-    XX       ;        ^        !        $        ,        XX       @ret     bspc     XX       @tab     "
+    XX       #        +        ?        *        \_       XX       XX       ret      XX       @esc     XX       XX
+    XX       ;        ^        !        $        ,        XX       ret      bspc     XX       @tab     "
     XX                                                    XX                         XX
 )
 
@@ -1502,21 +1499,21 @@
              XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
     XX       @%       @7       @SFT8    @9       @'/      XX       XX       XX       XX       XX       XX	XX
     XX       @0       @4       @SFT5    @6       @-       XX       XX       XX       XX       XX       XX       XX
-    XX       @'':     @1       @SFT2    @3       @'.      XX       XX       XX       XX       XX       XX
+    XX       @':      @1       @SFT2    @3       @'.      XX       XX       XX       XX       XX       XX
     XX                                                    @zen_num2                  XX
 )
 
 (deflayer zen_num2
              XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
     XX       @@       @&       @=       @|       @\\      XX       XX       XX       XX       XX       XX	XX
-    XX       @#       @+       @''?     @*       @\_      XX       XX       @ret     XX       @esc     XX       XX
+    XX       @#       @+       @'?      @*       @\_      XX       XX       ret      XX       @esc     XX       XX
     XX       @';      @^       @!       @$       @',      XX       XX       bspc     XX       @tab     XX
     XX                                                    XX                         XX
 )
  
 (deflayer SFT8
              XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-    XX       XX       @''{     XX       @''}     @`       XX       XX       XX       XX       XX       XX	XX
+    XX       XX       @PL      XX       @PR      @`       XX       XX       XX       XX       XX       XX	XX
     XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
     XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
     XX                                                    @spc&sft                   XX
@@ -1524,9 +1521,9 @@
 
 (deflayer SFT5
              XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-    XX       XX       @[       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
-    XX       XX       @Z[      XX       @Z]      @~       XX       XX       XX       XX       XX       XX	XX
-    XX       XX       XX       XX       @]       XX       XX       XX       XX       XX       XX       XX
+    XX       XX       @{       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
+    XX       XX       @[       XX       @]       @~       XX       XX       XX       XX       XX       XX	XX
+    XX       XX       XX       XX       @}       XX       XX       XX       XX       XX       XX       XX
     XX                                                    @spc&sft                   XX
 )
 
@@ -1534,39 +1531,7 @@
              XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
     XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
     XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
-    XX       @z`      @Z{      XX       @Z}      @z'      XX       XX       XX       XX       XX       XX
-    XX                                                    @spc&sft                   XX
-)
-
-(deflayer el1
-             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-    XX       @1spc    @=       @sft/    XX       @`0      XX       XX       XX       XX       XX       XX	XX
-    XX       @2.      @`=      @sft?    XX       XX       XX       XX       XX       XX       XX       XX       XX
-    XX       @2-      XX       @sft!    XX       @`PRTS   XX       XX       XX       XX       XX       XX
-    XX                                                    XX                         XX
-)
-
-(deflayer sft/
-             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-    XX       XX       @''{     XX       @''}     XX       XX       XX       XX       XX       XX       XX	XX
-    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
-    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-    XX                                                    @spc&sft                   XX
-)
-
-(deflayer sft?
-             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-    XX       XX       @[       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
-    XX       XX       @Z[      XX       @Z]      XX       XX       XX       XX       XX       XX       XX	XX
-    XX       XX       XX       XX       @]       XX       XX       XX       XX       XX       XX       XX
-    XX                                                    @spc&sft                   XX
-)
-
-(deflayer sft!
-             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
-    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
-    XX       XX       @Z{      XX       @Z}      XX       XX       XX       XX       XX       XX       XX
+    XX       @``      @'<      XX       @'>      @`'      XX       XX       XX       XX       XX       XX
     XX                                                    @spc&sft                   XX
 )
 
@@ -2629,12 +2594,12 @@
 	
 	(deflayer kj>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       @kj-e    XX       XX       XX       XX       XX       XX       XX       XX	XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
+	    XX       XX       @'/      @kj-e    XX       @`/      XX       XX       XX       XX       XX       XX	XX
+	    XX       @`2.     @`{      @SFT?    @`[      @PL      XX       XX       XX       XX       XX       XX       XX
+	    XX       @`2-     @`}      @SFT!    @`]      @PR      XX       XX       XX       XX       XX       XX
 	    XX                                                    @spc&sft                   XX
 	)
-	
+
 	(deflayer kl>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
 	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
@@ -2642,7 +2607,23 @@
 	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
 	    XX                                                    @spc&sft                   XX
 	)
-	
+
+	(deflayer SFT?
+	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
+	    XX       XX       @`PL     XX       @`<      XX       XX       XX       XX       XX       XX       XX	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
+	    XX                                                    @spc&sft                   XX
+	)
+
+	(deflayer SFT!
+	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
+	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
+	    XX       XX       @`PR     XX       @`>      XX       XX       XX       XX       XX       XX       XX
+	    XX                                                    @spc&sft                   XX
+	)
+
 (deflayer kana-l
              XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
     XX       @lq      @lw      @le      @lr      XX       XX       XX       XX       XX       @lo>     @lp>	XX
