@@ -1,5 +1,5 @@
 (defcfg
-    input    (device-file "/dev/input/by-id/usb-SONiX_USB_DEVICE-event-kbd")
+;;    input    (device-file "/dev/input/by-id/usb-YOUR_USB_DEVICE-event-kbd")
     output   (uinput-sink "My KMonad output")
     fallthrough true
 )
@@ -40,6 +40,41 @@
 	swa      (around lmet (around lalt #(up XX)))
 	swb      (around lmet (around lalt #(down XX)))
 
+	sft8  (tap-next 8 (layer-toggle sft8))
+	sft5  (tap-next 5 (layer-toggle sft5))
+	sft2  (tap-next 2 (layer-toggle sft2))
+
+;; 全角アルファベット
+	'q    #(ralt ' q XX)
+	'w    #(ralt ' w XX)
+	'e    #(ralt ' e XX)
+	'r    #(ralt ' r XX)
+	't    #(ralt ' t XX)
+	'a    #(ralt ' a XX)
+	's    #(ralt ' s XX)
+	'd    #(ralt ' d XX)
+	'f    #(ralt ' f XX)
+	'g    #(ralt ' g XX)
+	'z    #(ralt ' z XX)
+	'x    #(ralt ' x XX)
+	'c    #(ralt ' c XX)
+	'v    #(ralt ' v XX)
+	'b    #(ralt ' b XX)
+	'y    #(ralt ' y XX)
+	'u    #(ralt ' u XX)
+	'i    #(ralt ' i XX)
+	'o    #(ralt ' o XX)
+	'p    #(ralt ' p XX)
+	'h    #(ralt ' h XX)
+	'j    #(ralt ' j XX)
+	'k    #(ralt ' k XX)
+	'l    #(ralt ' l XX)
+	';    #(ralt ' ; XX)
+	'n    #(ralt ' n XX)
+	'm    #(ralt ' m XX)
+	',    #(ralt ' , XX)
+	'.    #(ralt ' . XX)
+	'/    #(ralt ' / XX)
 
 ;;  全角数字･記号
 	`     #(ralt ' `)					;; ｀
@@ -129,44 +164,6 @@
 	<   #(ralt = , XX)
 	>   #(ralt = . XX)
 	?   #(ralt = / XX)
-
-
-	'q    #(ralt ' q XX)
-	'w    #(ralt ' w XX)
-	'e    #(ralt ' e XX)
-	'r    #(ralt ' r XX)
-	't    #(ralt ' t XX)
-	'a    #(ralt ' a XX)
-	's    #(ralt ' s XX)
-	'd    #(ralt ' d XX)
-	'f    #(ralt ' f XX)
-	'g    #(ralt ' g XX)
-	'z    #(ralt ' z XX)
-	'x    #(ralt ' x XX)
-	'c    #(ralt ' c XX)
-	'v    #(ralt ' v XX)
-	'b    #(ralt ' b XX)
-	'y    #(ralt ' y XX)
-	'u    #(ralt ' u XX)
-	'i    #(ralt ' i XX)
-	'o    #(ralt ' o XX)
-	'p    #(ralt ' p XX)
-	'h    #(ralt ' h XX)
-	'j    #(ralt ' j XX)
-	'k    #(ralt ' k XX)
-	'l    #(ralt ' l XX)
-	';    #(ralt ' ; XX)
-	'n    #(ralt ' n XX)
-	'm    #(ralt ' m XX)
-	',    #(ralt ' , XX)
-	'.    #(ralt ' . XX)
-	'/    #(ralt ' / XX)
-
-	'spc  #(ralt ' spc)
-
-	sft8  (tap-next 8 (layer-toggle sft8))
-	sft5  (tap-next 5 (layer-toggle sft5))
-	sft2  (tap-next 2 (layer-toggle sft2))
 
 	yq  (around ralt #(] y - q XX))						;; 固有名詞モード用
 	yw  (around ralt #(] y - w XX))						;; 固有名詞モード、崩し字用
