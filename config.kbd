@@ -1,5 +1,5 @@
 (defcfg
-;;    input    (device-file "/dev/input/by-id/usb-YOUR_USB_DEVICE-event-kbd")
+    input    (device-file "/dev/input/by-id/usb-SONiX_USB_DEVICE-event-kbd")
     output   (uinput-sink "My KMonad output")
     fallthrough true
 )
@@ -2554,9 +2554,9 @@
 
 	(deflayer jk>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       @jk-e    XX       XX       XX       XX       XX       XX       XX       XX	XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
+	    XX       XX       @'/      @jk-e    XX       @`/      XX       XX       XX       XX       XX       XX	XX
+	    XX       @`2.     @`{      @SFT?    @`[      @PL      XX       XX       XX       XX       XX       XX       XX
+	    XX       @`2-     @`}      @SFT!    @`]      @PR      XX       XX       XX       XX       XX       XX
 	    XX                                                    @spc&sft                   XX
 	)
 
