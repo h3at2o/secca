@@ -1,5 +1,5 @@
 (defcfg
-;;    input    (device-file "/dev/input/by-id/usb-YOUR_USB_DEVICE-event-kbd")
+    input    (device-file "/dev/input/by-id/usb-SONiX_USB_DEVICE-event-kbd")
     output   (uinput-sink "My KMonad output")
     fallthrough true
 )
@@ -14,7 +14,7 @@
 
 (defalias
 	tab&alt  (tap-next tab (around lalt (layer-toggle roma0)))
-	zenkaku  (tap-next (layer-switch zenkaku) (around lctl (layer-toggle roma0)))
+	zenkaku  (tap-hold-next 70 (layer-switch zenkaku) (around lctl (layer-toggle roma0)))
 	bsl&alt  (tap-next ] (around lalt (layer-toggle roma0)))
 	spc&sft  (tap-next spc lsft)
 	tab      (tap-next tab (layer-toggle move))
@@ -119,19 +119,21 @@
 	'?   #(ralt " ?)					;; ？
 	SFT?  (tap-next #(ralt " ? XX) (layer-toggle SFT?))
 
-	``    #(ralt ` `)	;; 〝
-	`'    #(ralt ` ')	;; 〞
-	`[    #(ralt ` [)
-	`]    #(ralt ` ])
-	`{    #(ralt ` {)
-	`}    #(ralt ` })
-	`<    #(ralt ` < XX)
-	`>    #(ralt ` > XX)
-	`PL   #(ralt ` \( XX)
-	`PR   #(ralt ` \) XX)
-	`/    #(ralt ` /)
-	`2.   #(ralt ` . ralt ` .)
-	`2-   #(ralt ` - ralt ` -)
+	`=    #(ralt ` =)					;; 〜
+	``    #(ralt ` `)					;; 〝
+	`'    #(ralt ` ')					;; 〞
+	`[    #(ralt ` [)					;; 「
+	`]    #(ralt ` ])					;; 」
+	`{    #(ralt ` {)					;; 『
+	`}    #(ralt ` })					;; 』
+	`<    #(ralt ` <)					;; 《
+	`>    #(ralt ` >)					;; 》
+	`PL   #(ralt ` \()					;; 【
+	`PR   #(ralt ` \))					;; 】
+	`/    #(ralt ` /)					;; ・
+	`0    #(ralt ` 0)					;; 〇
+	`2.   #(ralt ` . ralt ` .)				;; ……
+	`2-   #(ralt ` - ralt ` -)				;; ——
 
 ;;  シフトかな prefix(tap="=")
 	Q   #(ralt = q XX)
@@ -2607,9 +2609,9 @@
 
 	(deflayer SFT?
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
-	    XX       XX       @`PL     XX       @`<      XX       XX       XX       XX       XX       XX       XX	XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
+	    XX       XX       @``      XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
+	    XX       XX       @`<      XX       @`PL     @`=      XX       XX       XX       XX       XX       XX	XX
+	    XX       XX       XX       XX       @`'      XX       XX       XX       XX       XX       XX       XX
 	    XX                                                    @spc&sft                   XX
 	)
 
@@ -2617,7 +2619,7 @@
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
 	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
 	    XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX	XX
-	    XX       XX       @`PR     XX       @`>      XX       XX       XX       XX       XX       XX       XX
+	    XX       XX       @`>      XX       @`PR     @`0      XX       XX       XX       XX       XX       XX
 	    XX                                                    @spc&sft                   XX
 	)
 
