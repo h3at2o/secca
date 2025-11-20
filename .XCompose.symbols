@@ -107,8 +107,8 @@
 <Multi_key> <grave> <grave> : "〝"
 <Multi_key> <grave> <apostrophe> : "〞"
 <Multi_key> <grave> <0> : "〇"
-<Multi_key> <grave> <minus> : "—"
-<Multi_key> <grave> <equal> : "〜"
+<Multi_key> <grave> <minus> : "—"		# ダッシュ
+<Multi_key> <grave> <equal> : "〜"		# 波ダッシュ（全角チルダではない）
 <Multi_key> <grave> <slash> : "・"
 <Multi_key> <grave> <period> : "…"
 <Multi_key> <grave> <less> : "《"
@@ -123,7 +123,7 @@
 <Multi_key> <asciitilde> <asciitilde> : "〝"
 <Multi_key> <asciitilde> <quotedbl> : "〞"
 <Multi_key> <asciitilde> <parenright> : "〇"
-<Multi_key> <asciitilde> <underscore> : "—"
-<Multi_key> <asciitilde> <plus> : "〜"
+<Multi_key> <asciitilde> <underscore> : "—"	# ダッシュ
+<Multi_key> <asciitilde> <plus> : "〜"		# 波ダッシュ（全角チルダではない）
 <Multi_key> <asciitilde> <question> : "・"
 <Multi_key> <asciitilde> <greater> : "…"
