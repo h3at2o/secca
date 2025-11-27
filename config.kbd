@@ -131,7 +131,7 @@
 	`PL   #(ralt ` \()					;; 【
 	`PR   #(ralt ` \))					;; 】
 	`/    #(ralt ` /)					;; ・
-	`0    #(ralt ` 0)					;; 〇
+	`0    #(ralt ` 0)					;; ○
 	`2.   #(ralt ` . ralt ` .)				;; ……
 	`2-   #(ralt ` - ralt ` -)				;; ——
 
@@ -1064,22 +1064,6 @@
 		xf-. (tap-next-release (around ralt (around [ #(x f - . XX))) (around ralt (around [ #(x f ] . XX))))
 		xf-/ (tap-next-release (around ralt (around [ #(x f - / XX))) (around ralt (around [ #(x f ] / XX))))
 
-		xg-y (around ralt (around [ #(x g - y XX)))
-		xg-u (tap-next-release (around ralt (around [ #(x g - u XX))) (around ralt (around [ #(x g ] u XX))))
-		xg-i (tap-next-release (around ralt (around [ #(x g - i XX))) (around ralt (around [ #(x g ] i XX))))
-		xg-o (tap-next-release (around ralt (around [ #(x g - o XX))) (around ralt (around [ #(x g ] o XX))))
-		xg-p (tap-next-release (around ralt (around [ #(x g - p XX))) (around ralt (around [ #(x g ] p XX))))
-		xg-h (tap-next-release (around ralt (around [ #(x g - h XX))) (around ralt (around [ #(x g ] h XX))))
-		xg-j (tap-next-release (around ralt (around [ #(x g - j XX))) (around ralt (around [ #(x g ] j XX))))
-		xg-k (tap-next-release (around ralt (around [ #(x g - k XX))) (around ralt (around [ #(x g ] k XX))))
-		xg-l (tap-next-release (around ralt (around [ #(x g - l XX))) (around ralt (around [ #(x g ] l XX))))
-		xg-; (tap-next-release (around ralt (around [ #(x g - ; XX))) (around ralt (around [ #(x g ] ; XX))))
-		xg-n (tap-next-release (around ralt (around [ #(x g - n XX))) (around ralt (around [ #(x g ] n XX))))
-		xg-m (tap-next-release (around ralt (around [ #(x g - m XX))) (around ralt (around [ #(x g ] m XX))))
-		xg-, (tap-next-release (around ralt (around [ #(x g - , XX))) (around ralt (around [ #(x g ] , XX))))
-		xg-. (tap-next-release (around ralt (around [ #(x g - . XX))) (around ralt (around [ #(x g ] . XX))))
-		xg-/ (tap-next-release (around ralt (around [ #(x g - / XX))) (around ralt (around [ #(x g ] / XX))))
-
 		xc-y (around ralt (around [ #(x c - y XX)))
 		xc-u (tap-next-release (around ralt (around [ #(x c - u XX))) (around ralt (around [ #(x c ] u XX))))
 		xc-i (tap-next-release (around ralt (around [ #(x c - i XX))) (around ralt (around [ #(x c ] i XX))))
@@ -1569,7 +1553,7 @@
 
 	(deflayer we>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @we-u    @we-i    @we-o    @we-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @we-y    @we-u    @we-i    @we-o    @we-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @we-h    @we-j    @we-k    @we-l    @we-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @we-n    @we-m    @we-,    @we-.    @we-/
 	    XX                                                    @spc&sft                   XX
@@ -1577,7 +1561,7 @@
 
 	(deflayer wr>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @wr-u    @wr-i    @wr-o    @wr-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @wr-y    @wr-u    @wr-i    @wr-o    @wr-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @wr-h    @wr-j    @wr-k    @wr-l    @wr-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @wr-n    @wr-m    @wr-,    @wr-.    @wr-/
 	    XX                                                    @spc&sft                   XX
@@ -1585,7 +1569,7 @@
 
 	(deflayer wd>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @wd-u    @wd-i    @wd-o    @wd-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @wd-y    @wd-u    @wd-i    @wd-o    @wd-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @wd-h    @wd-j    @wd-k    @wd-l    @wd-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @wd-n    @wd-m    @wd-,    @wd-.    @wd-/
 	    XX                                                    @spc&sft                   XX
@@ -1633,7 +1617,7 @@
 
 	(deflayer ew>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @ew-u    @ew-i    @ew-o    @ew-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @ew-y    @ew-u    @ew-i    @ew-o    @ew-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @ew-h    @ew-j    @ew-k    @ew-l    @ew-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @ew-n    @ew-m    @ew-,    @ew-.    @ew-/
 	    XX                                                    @spc&sft                   XX
@@ -1641,7 +1625,7 @@
 
 	(deflayer er>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @er-u    @er-i    @er-o    @er-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @er-y    @er-u    @er-i    @er-o    @er-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @er-h    @er-j    @er-k    @er-l    @er-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @er-n    @er-m    @er-,    @er-.    @er-/
 	    XX                                                    @spc&sft                   XX
@@ -1649,7 +1633,7 @@
 
 	(deflayer et>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @et-u    @et-i    @et-o    @et-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @et-y    @et-u    @et-i    @et-o    @et-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @et-h    @et-j    @et-k    @et-l    @et-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @et-n    @et-m    @et-,    @et-.    @et-/
 	    XX                                                    @spc&sft                   XX
@@ -1657,7 +1641,7 @@
 
 	(deflayer es>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @es-u    @es-i    @es-o    @es-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @es-y    @es-u    @es-i    @es-o    @es-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @es-h    @es-j    @es-k    @es-l    @es-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @es-n    @es-m    @es-,    @es-.    @es-/
 	    XX                                                    @spc&sft                   XX
@@ -1665,7 +1649,7 @@
 
 	(deflayer ef>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @ef-u    @ef-i    @ef-o    @ef-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @ef-y    @ef-u    @ef-i    @ef-o    @ef-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @ef-h    @ef-j    @ef-k    @ef-l    @ef-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @ef-n    @ef-m    @ef-,    @ef-.    @ef-/
 	    XX                                                    @spc&sft                   XX
@@ -1713,7 +1697,7 @@
 
 	(deflayer rw>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @rw-u    @rw-i    @rw-o    @rw-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @rw-y    @rw-u    @rw-i    @rw-o    @rw-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @rw-h    @rw-j    @rw-k    @rw-l    @rw-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @rw-n    @rw-m    @rw-,    @rw-.    @rw-/
 	    XX                                                    @spc&sft                   XX
@@ -1721,7 +1705,7 @@
 
 	(deflayer re>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @re-u    @re-i    @re-o    @re-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @re-y    @re-u    @re-i    @re-o    @re-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @re-h    @re-j    @re-k    @re-l    @re-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @re-n    @re-m    @re-,    @re-.    @re-/
 	    XX                                                    @spc&sft                   XX
@@ -1793,7 +1777,7 @@
 
 	(deflayer se>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @se-u    @se-i    @se-o    @se-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @se-y    @se-u    @se-i    @se-o    @se-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @se-h    @se-j    @se-k    @se-l    @se-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @se-n    @se-m    @se-,    @se-.    @se-/
 	    XX                                                    @spc&sft                   XX
@@ -1801,7 +1785,7 @@
 	
 	(deflayer sr>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @sr-u    @sr-i    @sr-o    @sr-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @sr-y    @sr-u    @sr-i    @sr-o    @sr-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @sr-h    @sr-j    @sr-k    @sr-l    @sr-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @sr-n    @sr-m    @sr-,    @sr-.    @sr-/
 	    XX                                                    @spc&sft                   XX
@@ -1809,7 +1793,7 @@
 	
 	(deflayer sd>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @sd-u    @sd-i    @sd-o    @sd-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @sd-y    @sd-u    @sd-i    @sd-o    @sd-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @sd-h    @sd-j    @sd-k    @sd-l    @sd-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @sd-n    @sd-m    @sd-,    @sd-.    @sd-/
 	    XX                                                    @spc&sft                   XX
@@ -1817,7 +1801,7 @@
 	
 	(deflayer sf>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @sf-u    @sf-i    @sf-o    @sf-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @sf-y    @sf-u    @sf-i    @sf-o    @sf-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @sf-h    @sf-j    @sf-k    @sf-l    @sf-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @sf-n    @sf-m    @sf-,    @sf-.    @sf-/
 	    XX                                                    @spc&sft                   XX
@@ -1825,7 +1809,7 @@
 	
 	(deflayer sc>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @sc-u    @sc-i    @sc-o    @sc-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @sc-y    @sc-u    @sc-i    @sc-o    @sc-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @sc-h    @sc-j    @sc-k    @sc-l    @sc-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @sc-n    @sc-m    @sc-,    @sc-.    @sc-/
 	    XX                                                    @spc&sft                   XX
@@ -1833,7 +1817,7 @@
 	
 	(deflayer sv>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @sv-u    @sv-i    @sv-o    @sv-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @sv-y    @sv-u    @sv-i    @sv-o    @sv-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @sv-h    @sv-j    @sv-k    @sv-l    @sv-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @sv-n    @sv-m    @sv-,    @sv-.    @sv-/
 	    XX                                                    @spc&sft                   XX
@@ -1849,7 +1833,7 @@
 
 	(deflayer dw>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @dw-u    @dw-i    @dw-o    @dw-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @dw-y    @dw-u    @dw-i    @dw-o    @dw-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @dw-h    @dw-j    @dw-k    @dw-l    @dw-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @dw-n    @dw-m    @dw-,    @dw-.    @dw-/
 	    XX                                                    @spc&sft                   XX
@@ -1857,7 +1841,7 @@
 	
 	(deflayer dr>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @dr-u    @dr-i    @dr-o    @dr-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @dr-y    @dr-u    @dr-i    @dr-o    @dr-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @dr-h    @dr-j    @dr-k    @dr-l    @dr-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @dr-n    @dr-m    @dr-,    @dr-.    @dr-/
 	    XX                                                    @spc&sft                   XX
@@ -1865,7 +1849,7 @@
 	
 	(deflayer dt>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @dt-u    @dt-i    @dt-o    @dt-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @dt-y    @dt-u    @dt-i    @dt-o    @dt-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @dt-h    @dt-j    @dt-k    @dt-l    @dt-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @dt-n    @dt-m    @dt-,    @dt-.    @dt-/
 	    XX                                                    @spc&sft                   XX
@@ -1873,7 +1857,7 @@
 	
 	(deflayer ds>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @ds-u    @ds-i    @ds-o    @ds-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @ds-y    @ds-u    @ds-i    @ds-o    @ds-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @ds-h    @ds-j    @ds-k    @ds-l    @ds-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @ds-n    @ds-m    @ds-,    @ds-.    @ds-/
 	    XX                                                    @spc&sft                   XX
@@ -1881,7 +1865,7 @@
 	
 	(deflayer df>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @df-u    @df-i    @df-o    @df-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @df-y    @df-u    @df-i    @df-o    @df-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @df-h    @df-j    @df-k    @df-l    @df-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @df-n    @df-m    @df-,    @df-.    @df-/
 	    XX                                                    @spc&sft                   XX
@@ -1889,7 +1873,7 @@
 	
 	(deflayer dg>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @dg-u    @dg-i    @dg-o    @dg-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @dg-y    @dg-u    @dg-i    @dg-o    @dg-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @dg-h    @dg-j    @dg-k    @dg-l    @dg-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @dg-n    @dg-m    @dg-,    @dg-.    @dg-/
 	    XX                                                    @spc&sft                   XX
@@ -1897,7 +1881,7 @@
 	
 	(deflayer dv>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @dv-u    @dv-i    @dv-o    @dv-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @dv-y    @dv-u    @dv-i    @dv-o    @dv-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @dv-h    @dv-j    @dv-k    @dv-l    @dv-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @dv-n    @dv-m    @dv-,    @dv-.    @dv-/
 	    XX                                                    @spc&sft                   XX
@@ -1929,7 +1913,7 @@
 
 	(deflayer fe>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @fe-u    @fe-i    @fe-o    @fe-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @fe-y    @fe-u    @fe-i    @fe-o    @fe-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @fe-h    @fe-j    @fe-k    @fe-l    @fe-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @fe-n    @fe-m    @fe-,    @fe-.    @fe-/
 	    XX                                                    @spc&sft                   XX
@@ -1937,7 +1921,7 @@
 	
 	(deflayer fs>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @fs-u    @fs-i    @fs-o    @fs-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @fs-y    @fs-u    @fs-i    @fs-o    @fs-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @fs-h    @fs-j    @fs-k    @fs-l    @fs-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @fs-n    @fs-m    @fs-,    @fs-.    @fs-/
 	    XX                                                    @spc&sft                   XX
@@ -1945,7 +1929,7 @@
 	
 	(deflayer fd>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @fd-u    @fd-i    @fd-o    @fd-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @fd-y    @fd-u    @fd-i    @fd-o    @fd-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @fd-h    @fd-j    @fd-k    @fd-l    @fd-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @fd-n    @fd-m    @fd-,    @fd-.    @fd-/
 	    XX                                                    @spc&sft                   XX
@@ -2065,7 +2049,7 @@
 
 	(deflayer xd>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @xd-u    @xd-i    @xd-o    @xd-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @xd-y    @xd-u    @xd-i    @xd-o    @xd-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @xd-h    @xd-j    @xd-k    @xd-l    @xd-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @xd-n    @xd-m    @xd-,    @xd-.    @xd-/
 	    XX                                                    @spc&sft                   XX
@@ -2073,7 +2057,7 @@
 
 	(deflayer xf>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @xf-u    @xf-i    @xf-o    @xf-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @xf-y    @xf-u    @xf-i    @xf-o    @xf-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @xf-h    @xf-j    @xf-k    @xf-l    @xf-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @xf-n    @xf-m    @xf-,    @xf-.    @xf-/
 	    XX                                                    @spc&sft                   XX
@@ -2081,7 +2065,7 @@
 
 	(deflayer xc>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @xc-u    @xc-i    @xc-o    @xc-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @xc-y    @xc-u    @xc-i    @xc-o    @xc-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @xc-h    @xc-j    @xc-k    @xc-l    @xc-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @xc-n    @xc-m    @xc-,    @xc-.    @xc-/
 	    XX                                                    @spc&sft                   XX
@@ -2089,7 +2073,7 @@
 
 	(deflayer xv>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @xv-u    @xv-i    @xv-o    @xv-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @xv-y    @xv-u    @xv-i    @xv-o    @xv-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @xv-h    @xv-j    @xv-k    @xv-l    @xv-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @xv-n    @xv-m    @xv-,    @xv-.    @xv-/
 	    XX                                                    @spc&sft                   XX
@@ -2145,7 +2129,7 @@
 
 	(deflayer cs>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @cs-u    @cs-i    @cs-o    @cs-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @cs-y    @cs-u    @cs-i    @cs-o    @cs-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @cs-h    @cs-j    @cs-k    @cs-l    @cs-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @cs-n    @cs-m    @cs-,    @cs-.    @cs-/
 	    XX                                                    @spc&sft                   XX
@@ -2161,7 +2145,7 @@
 
 	(deflayer cx>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @cx-u    @cx-i    @cx-o    @cx-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @cx-y    @cx-u    @cx-i    @cx-o    @cx-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @cx-h    @cx-j    @cx-k    @cx-l    @cx-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @cx-n    @cx-m    @cx-,    @cx-.    @cx-/
 	    XX                                                    @spc&sft                   XX
@@ -2169,7 +2153,7 @@
 
 	(deflayer cv>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @cv-u    @cv-i    @cv-o    @cv-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @cv-y    @cv-u    @cv-i    @cv-o    @cv-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @cv-h    @cv-j    @cv-k    @cv-l    @cv-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @cv-n    @cv-m    @cv-,    @cv-.    @cv-/
 	    XX                                                    @spc&sft                   XX
@@ -2177,7 +2161,7 @@
 
 	(deflayer cb>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @cb-u    @cb-i    @cb-o    @cb-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @cb-y    @cb-u    @cb-i    @cb-o    @cb-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @cb-h    @cb-j    @cb-k    @cb-l    @cb-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @cb-n    @cb-m    @cb-,    @cb-.    @cb-/
 	    XX                                                    @spc&sft                   XX
@@ -2193,7 +2177,7 @@
 
 	(deflayer vs>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @vs-u    @vs-i    @vs-o    @vs-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @vs-y    @vs-u    @vs-i    @vs-o    @vs-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @vs-h    @vs-j    @vs-k    @vs-l    @vs-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @vs-n    @vs-m    @vs-,    @vs-.    @vs-/
 	    XX                                                    @spc&sft                   XX
@@ -2201,7 +2185,7 @@
 
 	(deflayer vd>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @vd-u    @vd-i    @vd-o    @vd-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @vd-y    @vd-u    @vd-i    @vd-o    @vd-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @vd-h    @vd-j    @vd-k    @vd-l    @vd-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @vd-n    @vd-m    @vd-,    @vd-.    @vd-/
 	    XX                                                    @spc&sft                   XX
@@ -2209,7 +2193,7 @@
 
 	(deflayer vx>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @vx-u    @vx-i    @vx-o    @vx-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @vx-y    @vx-u    @vx-i    @vx-o    @vx-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @vx-h    @vx-j    @vx-k    @vx-l    @vx-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @vx-n    @vx-m    @vx-,    @vx-.    @vx-/
 	    XX                                                    @spc&sft                   XX
@@ -2217,7 +2201,7 @@
 
 	(deflayer vc>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       XX       XX       XX       XX       XX       XX       @vc-u    @vc-i    @vc-o    @vc-p	XX
+	    XX       XX       XX       XX       XX       XX       XX       @vc-y    @vc-u    @vc-i    @vc-o    @vc-p	XX
 	    XX       XX       XX       XX       XX       XX       XX       @vc-h    @vc-j    @vc-k    @vc-l    @vc-;    XX
 	    XX       XX       XX       XX       XX       XX       XX       @vc-n    @vc-m    @vc-,    @vc-.    @vc-/
 	    XX                                                    @spc&sft                   XX
