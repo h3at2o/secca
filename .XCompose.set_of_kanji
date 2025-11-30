@@ -4427,6 +4427,7 @@
 <Multi_key> <bracketleft> <w> <e> <bracketright> <k> <braceright> <J> <underscore> <X> : "図絵"
 <Multi_key> <bracketleft> <x> <c> <bracketright> <u> <bracketright> <i> <minus> <s> : "固定"
 <Multi_key> <bracketleft> <x> <c> <bracketright> <u> <bracketright> <i> <minus> <w> : "固形"
+<Multi_key> <bracketleft> <x> <c> <bracketright> <u> <bracketright> <i> <minus> <e> : "固有"
 <Multi_key> <bracketleft> <x> <c> <bracketright> <u> <bracketright> <i> <minus> <c> : "固執"
 <Multi_key> <bracketleft> <x> <c> <bracketright> <u> <bracketright> <i> <minus> <r> : "固体"
 <Multi_key> <bracketleft> <x> <c> <bracketright> <u> <bracketright> <i> <minus> <d> : "固太"
