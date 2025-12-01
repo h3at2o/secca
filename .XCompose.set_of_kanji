@@ -657,7 +657,7 @@
 <Multi_key> <bracketleft> <d> <f> <bracketright> <k> <equal> <x> : "人的"
 <Multi_key> <bracketleft> <d> <f> <bracketright> <k> <minus> <f> : "人脈"
 <Multi_key> <bracketleft> <d> <f> <bracketright> <k> <equal> <e> : "人質"
-<Multi_key> <braceleft> <D> <F> <braceright> <K> <D> <F> <underscore> <greater> : "人混"
+<Multi_key> <braceleft> <D> <F> <braceright> <K> <D> <F> <underscore> <greater> : "人混み"
 <Multi_key> <braceleft> <D> <F> <braceright> <K> <D> <F> <underscore> <J> : "人出"
 <Multi_key> <braceleft> <D> <F> <braceright> <K> <D> <F> <underscore> <O> : "人通"
 <Multi_key> <braceleft> <D> <F> <braceright> <K> <D> <F> <underscore> <H> : "人情"
