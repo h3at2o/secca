@@ -546,7 +546,7 @@ include ".XCompose.proper_noun"
 <Multi_key> <bracketright> <l> <minus> <n> : ""
 <Multi_key> <braceright> <J> <underscore> <H> : "クァ"
 <Multi_key> <braceright> <H> <underscore> <J> : "クァ"
-<Multi_key> <bracketright> <j> <minus> <h> : ""
+<Multi_key> <bracketright> <j> <minus> <h> : ""			# ひらがなの時に無効にするためと、かなの時に「IME ON」を無効にするため
 <Multi_key> <bracketright> <h> <minus> <j> : ""
 <Multi_key> <braceright> <K> <underscore> <H> : "クィ"
 <Multi_key> <braceright> <H> <underscore> <K> : "クィ"
@@ -744,6 +744,8 @@ include ".XCompose.proper_noun"
 <Multi_key> <bracketright> <j> <l> <minus> <d> : ""
 <Multi_key> <bracketright> <j> <d> <minus> <l> : ""
 
+<Multi_key> <braceright> <braceright> <E> <plus> <P> : "テュ"
+<Multi_key> <braceright> <braceright> <P> <plus> <E> : "テュ"
 <Multi_key> <braceright> <braceright> <J> <plus> <L> : "ツァ"
 <Multi_key> <braceright> <braceright> <L> <plus> <J> : "ツァ"
 <Multi_key> <braceright> <braceright> <K> <plus> <L> : "ツィ"
@@ -761,4 +763,3 @@ include ".XCompose.proper_noun"
 <Multi_key> <bracketright> <bracketright> <n> <plus> <l> : ""
 <Multi_key> <bracketright> <bracketright> <l> <plus> <n> : ""
 
-<Multi_key> <bracketright> <j> <minus> <h> : ""		# かなの時に「IME ON」を無効にするため
