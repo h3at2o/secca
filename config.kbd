@@ -131,7 +131,7 @@
 	`PL   #(ralt ` \()					;; 【
 	`PR   #(ralt ` \))					;; 】
 	`/    #(ralt ` /)					;; ・
-	`0    #(ralt ` 0)					;; ○
+	`0    #(ralt ` 0)					;; 〇
 	`2.   #(ralt ` . ralt ` .)				;; ……
 	`2-   #(ralt ` - ralt ` -)				;; ——
 
@@ -1464,7 +1464,7 @@
 
 (deflayer num2
              XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-    XX       @        &        =        |        \\       XX       XX       XX       XX       XX       XX	XX	;; 
+    XX       @        &        =        |        \\       XX       XX       XX       XX       XX       XX	XX
     XX       #        +        ?        *        \_       XX       XX       ret      XX       @esc     XX       XX
     XX       ;        ^        !        $        ,        XX       ret      bspc     XX       @tab     "
     XX                                                    XX                         XX
@@ -1473,8 +1473,8 @@
 (deflayer move
              XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
     XX       pgup     @7up     up       end      @20right XX       XX       XX       XX       XX       XX	XX
-    XX       @5left   left     down     right    @5right  XX       XX       ret      XX       @esc     XX       XX
-    XX       @20left  home     down     @7down   pgdn     XX       XX       bspc     XX       tab      XX
+    XX       @5left   left     down     right    @5right  XX       XX       XX       XX       XX       XX       XX
+    XX       @20left  home     down     @7down   pgdn     XX       XX       XX       XX       XX       XX
     XX                                                    @spc&sft                   XX
 )
 
@@ -1489,8 +1489,8 @@
 (deflayer zen_num2
              XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
     XX       @@       @&       @=       @|       @\\      XX       XX       XX       XX       XX       XX	XX
-    XX       @#       @+       @'?      @*       @\_      XX       XX       ret      XX       @esc     XX       XX
-    XX       @';      @^       @!       @$       @',      XX       XX       bspc     XX       @tab     XX
+    XX       @#       @+       @'?      @*       @\_      XX       XX       XX       XX       XX       XX       XX
+    XX       @';      @^       @!       @$       @',      XX       XX       XX       XX       XX       XX
     XX                                                    XX                         XX
 )
  
@@ -2537,7 +2537,7 @@
 
 	(deflayer jk>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       @'/      @jk-e    XX       @`/      XX       XX       XX       XX       XX       XX	XX
+	    XX       @spc     @'/      @jk-e    XX       @`/      XX       XX       XX       XX       XX       XX	XX
 	    XX       @`2.     @`{      @SFT?    @`[      @PL      XX       XX       XX       XX       XX       XX       XX
 	    XX       @`2-     @`}      @SFT!    @`]      @PR      XX       XX       XX       XX       XX       XX
 	    XX                                                    @spc&sft                   XX
@@ -2577,7 +2577,7 @@
 	
 	(deflayer kj>
 	             XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-	    XX       XX       @'/      @kj-e    XX       @`/      XX       XX       XX       XX       XX       XX	XX
+	    XX       @spc     @'/      @kj-e    XX       @`/      XX       XX       XX       XX       XX       XX	XX
 	    XX       @`2.     @`{      @SFT?    @`[      @PL      XX       XX       XX       XX       XX       XX       XX
 	    XX       @`2-     @`}      @SFT!    @`]      @PR      XX       XX       XX       XX       XX       XX
 	    XX                                                    @spc&sft                   XX
